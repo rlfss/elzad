@@ -2,7 +2,7 @@
 {
     'name': 'Checkout Custom',
     'category': 'Sales',
-    'version': '12.1.1.0.0',
+    'version': '12.2.1.0.0',
     'license': 'OPL-1',
     'depends': ['base','website_sale'],
     'data': [
