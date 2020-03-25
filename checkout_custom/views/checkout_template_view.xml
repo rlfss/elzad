@@ -10,7 +10,7 @@
                 <field name="city_sel"/>
             </field>
             <field name="vat" position="after">
-                <field name="zone "/>
+                <field name="zone"/>
             </field>
         </field>
     </record>
