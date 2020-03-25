@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of AppJetty. See LICENSE file for full copyright and licensing details.
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+import logging
+import threading
 
+from odoo.tools.misc import split_every
 
-class website(models.Model):
-    _inherit = 'website'
+from odoo import _, api, fields, models, registry, SUPERUSER_ID
+from odoo.osv import expression
+
+_logger = logging.getLogger(__name__)
 
     
     
@@ -14,7 +17,7 @@ class CitySelect(models.Model):
     _name = 'res.partner.city'
     _description = 'City Select'
     
-    name =  fields.Char('Name')
+    name = fields.Char('Name')
     code = fields.Char('Code')
     
 class ZoneSelect(models.Model):
@@ -27,7 +30,7 @@ class ZoneSelect(models.Model):
 
     
     
-class ResPartner(models.Model):
+class Partner(models.Model):
     _name = "res.partner"
     _inherit = "res.partner"
     
@@ -38,5 +41,3 @@ class ResPartner(models.Model):
     def _onchange_city_sel(self):
         if self.city_sel:
             self.city = self.city_sel.name
-
-    
