@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!--     <record id="view_partner_form_inherit_website" model="ir.ui.view">
+    <record id="view_partner_form_inherit_website" model="ir.ui.view">
         <field name="name">res.partner.form.website.inherit</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
@@ -14,7 +14,7 @@
             </field>
         </field>
     </record>
- -->
+
     <template id="address_inherit" inherit_id="website_sale.address">
         <xpath expr="//div[hasclass('form-row')]" position="replace">
             <div class="form-row">
