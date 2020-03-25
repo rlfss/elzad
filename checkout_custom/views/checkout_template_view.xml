@@ -45,12 +45,17 @@
                     <label class="col-form-label" for="city">City</label>
                     <input type="text" name="city" t-attf-class="form-control #{error.get('city') and 'is-invalid' or ''}" t-att-value="'city' in checkout and checkout['city']" />
                 </div>
-                <t t-if="'zip' in zip_city and zip_city.index('zip') &gt; zip_city.index('city')">
-                    <div t-attf-class="form-group #{error.get('zip') and 'o_has_error' or ''} col-md-4 div_zip">
-                        <label class="col-form-label label-optional" for="zip">Zone</label>
-                        <input type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}" t-att-value="'zip' in checkout and checkout['zip']" />
+                    <div t-attf-class="form-group #{error.get('Zone') and 'o_has_error' or ''} col-md-4 div_zip">
+                        <label class="col-form-label label-optional" for="Zone">Zone</label>
+                        <select id="zone" name="zone" t-attf-class="form-control #{error.get('zone') and 'is-invalid' or ''}">
+                            <option value="">Zone...</option>
+                            <t t-foreach="Zones" t-as="c">
+                                <option t-att-value="c.id" t-att-selected="c.id == (Zone and Zone.id or -1)">
+                                    <t t-esc="c.name" />
+                                </option>
+                            </t>
+                        </select>
                     </div>
-                </t>
                 <div class="w-100"/>
                 <div t-attf-class="form-group #{error.get('street') and 'o_has_error' or ''} col-lg-12 div_street">
                     <label class="col-form-label" for="street">Street <span class="d-none d-md-inline"> and Number</span></label>
