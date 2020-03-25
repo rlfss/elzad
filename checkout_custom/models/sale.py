@@ -3,6 +3,9 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+from odoo.http import request
+import logging
+_log = logging.getLogger(__name__)
 
 
 class SaleOrder(models.Model):
