@@ -30,6 +30,7 @@ class WebsiteSale(WebsiteSale):
         can_edit_vat = False
         def_country_id = order.partner_id.country_id
         def_zone = order.partner_id.zone
+        def_city_sel = order.partner_id.city_sel
         values, errors = {}, {}
 
         partner_id = int(kw.get('partner_id', -1))
@@ -95,6 +96,8 @@ class WebsiteSale(WebsiteSale):
         zone = 'zone' in values and values['zone'] != '' and request.env['res.partner.zone'].browse(int(values['zone']))
         zone = zone and zone.exists() or def_zone
 
+        city_sel = 'city_sel' in values and values['city_sel'] != '' and request.env['res.partner.city'].browse(int(values['city_sel']))
+        city_sel = city_sel and city_sel.exists() or def_city_sel
 
         render_values = {
             'website_sale_order': order,
@@ -106,6 +109,8 @@ class WebsiteSale(WebsiteSale):
             'countries': country.get_website_sale_countries(mode=mode[1]),
             'zone': zone,
             'zones': zone.get_website_sale_countries(mode=mode[1]),
+            'city_sel': city_sel,
+            'city_sels': city_sel.get_website_sale_countries(mode=mode[1]),
             "states": country.get_website_sale_states(mode=mode[1]),
             'error': errors,
             'callback': kw.get('callback'),
