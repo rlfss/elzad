@@ -1,4 +1,5 @@
-odoo.define('checkout_custom.website', function (require) {
+
+odoo.define('advance_website_settings.advance_website_settings', function (require) {
 "use strict";
 
     var core = require('web.core');
@@ -6,6 +7,41 @@ odoo.define('checkout_custom.website', function (require) {
     var _t = core._t;
     var sAnimations = require('website.content.snippets.animation');
     var weContext = require('web_editor.context');
+
+    sAnimations.registry.WebsiteSaleOptions = sAnimations.registry.WebsiteSaleOptions.extend({
+      _onModalSubmit: function (goToShop) {
+        var customValues = JSON.stringify(
+              this.optionalProductsModal.getSelectedProducts()
+          );
+
+          this.$form.ajaxSubmit({
+              url:  '/shop/cart/update_option',
+              data: {
+                  lang: weContext.get().lang,
+                  custom_values: customValues
+              },
+              success: function (quantity) {
+                customValues = JSON.parse(customValues);
+                var product = customValues[0];
+                ajax.jsonRpc('/new_get_redirect_val','call',{
+                  'product_id': product.product_id
+                }).then(function(res){
+                  if (res != undefined){
+                    window.location.href = res
+                  } else {
+                    if (goToShop) {
+                        var path = window.location.pathname.replace(/shop([\/?].*)?$/, "shop/cart");
+                        window.location.pathname = path;
+                    }
+                    var $quantity = $(".my_cart_quantity");
+                    $quantity.parent().parent().removeClass("d-none", !quantity);
+                    $quantity.html(quantity).hide().fadeIn(600);
+                  }
+                });
+              }
+          });
+      }
+    });
 
     $(document).ready(function(){
       function escapeRegExp(text) {
@@ -32,10 +68,10 @@ odoo.define('checkout_custom.website', function (require) {
         {   
           var conf_value = $('.oe_website_sale').find('.cart_values span.oe_currency_value').text();
           var cart_value = $('#order_total span.oe_currency_value').text();
+          var thousand_sep = new RegExp(escapeRegExp(constraints.thousands_sep),"g")
+          var decimal_sep = new RegExp(escapeRegExp(constraints.decimal_point),"g")
           var cart=parseFloat(cart_value.replace(thousand_sep,'').replace(decimal_sep,'.'))
           var check=parseFloat(conf_value.replace(thousand_sep,'').replace(decimal_sep,'.'))
-          var cart=parseFloat(cart_value)
-          var check=parseFloat(conf_value)
           var currency_symbol = $('.oe_website_sale').find('.cart_values').attr('currency_symbol');
           var $link = $(this);
             if (cart<check)
@@ -54,7 +90,7 @@ odoo.define('checkout_custom.website', function (require) {
             setTimeout(function() {$link.popover("dispose");},3000);
         });
 
-       var totalPriceElem = $('#oe_currency_value span');
+       var totalPriceElem = $('#sub_total span');
        var quantityField = $('.css_quantity input[type="text"].quantity');
        var defaultPrice = $('.oe_price_h4 b.oe_price .oe_currency_value');
        var price;
