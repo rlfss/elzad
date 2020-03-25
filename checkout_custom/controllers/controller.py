@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
-import logging
-import re
-
-import odoo
-from odoo import http,SUPERUSER_ID ,_
-from odoo.http import route,request
-from odoo.addons.auth_signup.models.res_users import SignupError
-from odoo.exceptions import UserError
+from odoo import http
+from odoo.http import request
+from odoo import SUPERUSER_ID
+from odoo.addons.http_routing.models.ir_http import slug
 from odoo.addons.website_sale.controllers.main import WebsiteSale
+import logging
 _logger = logging.getLogger(__name__)
-from odoo.exceptions import UserError
 
 class WebsiteSale(WebsiteSale):
 
