@@ -158,7 +158,8 @@ class WebsiteSale(WebsiteSale):
 
 
 	def checkout_redirection(self, order):
-		minimum_order_value = 1 if not request.website.minimum_order_value else request.website.minimum_order_value
-		if  minimum_order_value and order.amount_total < minimum_order_value:
+# 		minimum_order_value = 1 if not request.website.minimum_order_value else request.website.minimum_order_value
+		minimum_order_value = request.website.minimum_order_value
+		if order.amount_total < minimum_order_value:
 			return request.redirect('/shop/cart')
 		return super(website_sale, self).checkout_redirection(order)
