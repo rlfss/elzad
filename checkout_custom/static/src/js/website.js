@@ -89,7 +89,7 @@ odoo.define('checkout_custom.website', function (require) {
             setTimeout(function() {$link.popover("dispose");},3000);
         });
 
-       var totalPriceElem = $('#sub_total span');
+       var totalPriceElem = $('#oe_currency_value span');
        var quantityField = $('.css_quantity input[type="text"].quantity');
        var defaultPrice = $('.oe_price_h4 b.oe_price .oe_currency_value');
        var price;
@@ -127,7 +127,7 @@ odoo.define('checkout_custom.website', function (require) {
        
        defaultPrice.on('DOMSubtreeModified',function(){
           try {
-            ajax.jsonRpc('/website/wk_lang','call',{
+            ajax.jsonRpc('/website/new_lang','call',{
               'code': code
             })
             .then(function(res){
