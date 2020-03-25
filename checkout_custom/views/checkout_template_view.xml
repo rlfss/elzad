@@ -45,12 +45,12 @@
                     <label class="col-form-label" for="city">City</label>
                     <input type="text" name="city" t-attf-class="form-control #{error.get('city') and 'is-invalid' or ''}" t-att-value="'city' in checkout and checkout['city']" />
                 </div>
-                    <div t-attf-class="form-group #{error.get('Zone') and 'o_has_error' or ''} col-md-4 div_zip">
+                    <div t-attf-class="form-group #{error.get('zone') and 'o_has_error' or ''} col-md-4 div_zip">
                         <label class="col-form-label label-optional" for="Zone">Zone</label>
                         <select id="zone" name="zone" t-attf-class="form-control #{error.get('zone') and 'is-invalid' or ''}">
                             <option value="">Zone...</option>
-                            <t t-foreach="Zones" t-as="c">
-                                <option t-att-value="c.id" t-att-selected="c.id == (Zone and Zone.id or -1)">
+                            <t t-foreach="zones" t-as="c">
+                                <option t-att-value="c.id" t-att-selected="c.id == (zone and zone.id or -1)">
                                     <t t-esc="c.name" />
                                 </option>
                             </t>
