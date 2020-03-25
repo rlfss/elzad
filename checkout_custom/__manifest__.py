@@ -8,6 +8,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/checkout_template_view.xml',
+        'views/sale.xml',
     ],
     'installable': True,
 }
