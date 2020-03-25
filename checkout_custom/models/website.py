@@ -9,6 +9,7 @@ class website(models.Model):
     _inherit = 'website'
 
 class ResPartner(models.Model):
+    _name = "res.partner"
     _inherit = "res.partner"
     
     city_sel = fields.Many2one('res.partner.city', string='City')
