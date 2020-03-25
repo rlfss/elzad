@@ -7,6 +7,40 @@ odoo.define('checkout_custom.website', function (require) {
     var sAnimations = require('website.content.snippets.animation');
     var weContext = require('web_editor.context');
 
+    sAnimations.registry.WebsiteSaleOptions = sAnimations.registry.WebsiteSaleOptions.extend({
+      _onModalSubmit: function (goToShop) {
+        var customValues = JSON.stringify(
+              this.optionalProductsModal.getSelectedProducts()
+          );
+
+          this.$form.ajaxSubmit({
+              url:  '/shop/cart/update_option',
+              data: {
+                  lang: weContext.get().lang,
+                  custom_values: customValues
+              },
+              success: function (quantity) {
+                customValues = JSON.parse(customValues);
+                var product = customValues[0];
+                ajax.jsonRpc('/new_get_redirect_val','call',{
+                  'product_id': product.product_id
+                }).then(function(res){
+                  if (res != undefined){
+                    window.location.href = res
+                  } else {
+                    if (goToShop) {
+                        var path = window.location.pathname.replace(/shop([\/?].*)?$/, "shop/cart");
+                        window.location.pathname = path;
+                    }
+                    var $quantity = $(".my_cart_quantity");
+                    $quantity.parent().parent().removeClass("d-none", !quantity);
+                    $quantity.html(quantity).hide().fadeIn(600);
+                  }
+                });
+              }
+          });
+      }
+    });
 
     $(document).ready(function(){
       function escapeRegExp(text) {
