@@ -8,11 +8,11 @@ odoo.define('checkout_custom.website', function (require) {
         var oe_website_sale = this;
         $(oe_website_sale).on('click', '.btn.btn-primary.pull-right.mb32', function (ev)
         {
-            var conf_value = $(this).find('.wk_cart_values').attr('conf_value');
+            var conf_value = $(this).find('.cart_values').attr('conf_value');
             var cart_value = $('#order_total>:last>span>span').text();
             var cart_value = cart_value.replace(",", "");
             var cart_value = parseFloat(cart_value);
-            var currency_symbol = $(this).find('.wk_cart_values').attr('currency_symbol');
+            var currency_symbol = $(this).find('.cart_values').attr('currency_symbol');
             var $link = $(this);
             setTimeout(function() {$link.popover('destroy')},3000);
             if (cart_value < conf_value)
