@@ -4,6 +4,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.http import request
+from odoo.addons import decimal_precision as dp
 import logging
 _log = logging.getLogger(__name__)
 
