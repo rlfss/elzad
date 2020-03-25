@@ -12,7 +12,7 @@ odoo.define('checkout_custom.website', function (require) {
       }
       var code = $('html').attr('lang');
       var constraints;
-      $('.oe_website_sale').find('.wk_cart_values').hide()
+      $('.oe_website_sale').find('.cart_values').hide()
 
       try {
         ajax.jsonRpc('/website/wk_lang','call',{
@@ -29,13 +29,13 @@ odoo.define('checkout_custom.website', function (require) {
 
         $('.oe_website_sale').on('click', 'a[href$="/shop/checkout?express=1"]', function (ev)
         {   
-          var conf_value = $('.oe_website_sale').find('.wk_cart_values span.oe_currency_value').text();
+          var conf_value = $('.oe_website_sale').find('.cart_values span.oe_currency_value').text();
           var cart_value = $('#order_total span.oe_currency_value').text();
           var thousand_sep = new RegExp(escapeRegExp(constraints.thousands_sep),"g")
           var decimal_sep = new RegExp(escapeRegExp(constraints.decimal_point),"g")
           var cart=parseFloat(cart_value.replace(thousand_sep,'').replace(decimal_sep,'.'))
           var check=parseFloat(conf_value.replace(thousand_sep,'').replace(decimal_sep,'.'))
-          var currency_symbol = $('.oe_website_sale').find('.wk_cart_values').attr('currency_symbol');
+          var currency_symbol = $('.oe_website_sale').find('.cart_values').attr('currency_symbol');
           var $link = $(this);
             if (cart<check)
             {
