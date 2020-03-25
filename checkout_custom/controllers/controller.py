@@ -9,6 +9,7 @@ from odoo.addons.auth_signup.models.res_users import SignupError
 from odoo.exceptions import UserError
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 _logger = logging.getLogger(__name__)
+from odoo.exceptions import UserError
 
 class WebsiteSale(WebsiteSale):
 
@@ -123,4 +124,6 @@ class WebsiteSale(WebsiteSale):
         minimum_order_value = 1 if not request.website.minimum_order_value else request.website.minimum_order_value
         if  minimum_order_value and order.amount_total < minimum_order_value:
             return request.redirect('/shop/cart')
+        else:
+            raise UserError(_("Invalid Cart Value.","A minimum purchase total of "+ str(minimum_order_value) +" is required to confirm your order"))
         return super(website_sale, self).checkout_redirection(order)
