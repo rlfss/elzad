@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
 
     def get_minimun_cart(self):
         
-        ir_default = self.env['website'].get_current_website().c_id._convert(
+        ir_default = self.env['website'].get_current_website().currency_id._convert(
                     self.env['website'].get_current_website().minimum_order_value, request.env['website'].get_current_website().pricelist_id.currency_id, self.env.user.company_id,
                     fields.Date.today()
                     )
@@ -23,7 +23,7 @@ class SaleOrder(models.Model):
     @api.model
     def _get_errors(self, order):
         
-        minimum_order_value =1 if self.env['website'].sudo().get_current_website().minimum_order_value == None else self.env['website'].sudo().get_current_website().c_id._convert(
+        minimum_order_value =1 if self.env['website'].sudo().get_current_website().minimum_order_value == None else self.env['website'].sudo().get_current_website().currency_id._convert(
                     self.env['website'].sudo().get_current_website().minimum_order_value, self.env['website'].sudo().get_current_pricelist().currency_id, self.env.user.company_id,
                     fields.Date.today()
                     )
