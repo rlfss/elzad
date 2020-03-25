@@ -31,6 +31,7 @@
             <field name="arch" type="xml">
                   <xpath expr="//field[@name='domain']" position="after">
                     <field name="minimum_order_value"/>
+                    <field name="currency_id"/>
                   </xpath>
             </field>
         </record>
