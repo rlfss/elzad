@@ -124,6 +124,4 @@ class WebsiteSale(WebsiteSale):
         minimum_order_value = 1 if not request.website.minimum_order_value else request.website.minimum_order_value
         if  minimum_order_value and order.amount_total < minimum_order_value:
             return request.redirect('/shop/cart')
-        else:
-            raise UserError(_("Invalid Cart Value.","A minimum purchase total of "+ str(minimum_order_value) +" is required to confirm your order"))
         return super(website_sale, self).checkout_redirection(order)
