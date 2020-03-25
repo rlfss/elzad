@@ -15,14 +15,7 @@
     </field>
   </record>
 
-    <template id="checkout_button_inherited" inherit_id="website_sale.cart" name="Checkout">
-        <xpath expr="//div/div[@class='col-12 col-xl-8 oe_cart']//a[@href='/shop/checkout?express=1']" position="inside">
-          <p class="oe_currency_value wk_cart_values" t-att-conf_value="website_sale_order.sudo().get_minimun_cart()" t-att-currency_symbol="website_sale_order.pricelist_id.currency_id.symbol" style="margin:0px;"><t t-esc='website_sale_order.sudo().get_minimun_cart()'  t-options='{
-                 "widget": "monetary",
-                 "display_currency": website.pricelist_id.currency_id
-             }'/></p>
-        </xpath>
-    </template>
+
 	
         <record id="view_website_form_inh" model="ir.ui.view">
             <field name="name">website.form</field>
