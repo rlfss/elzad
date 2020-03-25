@@ -17,7 +17,7 @@ odoo.define('checkout_custom.website', function (require) {
       $('.oe_website_sale').find('.cart_values').hide()
 
       try {
-        ajax.jsonRpc('/website/wk_lang','call',{
+        ajax.jsonRpc('/website/new_lang','call',{
           'code': code
         })
         .then(function(res){
