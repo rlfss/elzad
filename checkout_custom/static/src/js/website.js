@@ -4,6 +4,8 @@ odoo.define('checkout_custom.website', function (require) {
     var core = require('web.core');
     var ajax = require('web.ajax');
     var _t = core._t;
+    var sAnimations = require('website.content.snippets.animation');
+    var weContext = require('web_editor.context');
 
 
     $(document).ready(function(){
