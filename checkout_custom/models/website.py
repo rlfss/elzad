@@ -19,7 +19,10 @@ class CitySelect(models.Model):
     
     name = fields.Char('Name')
     code = fields.Char('Code')
-    
+    def get_website_sale_countries(self, mode='billing'):
+        return self.sudo().search([])
+
+
 class ZoneSelect(models.Model):
     _name = 'res.partner.zone'
     _description = 'Zone Select'
@@ -27,6 +30,9 @@ class ZoneSelect(models.Model):
     name =  fields.Char('Name')
     city_sel = fields.Many2one('res.partner.city', string='City')
     code = fields.Char('Code')
+    def get_website_sale_countries(self, mode='billing'):
+        return self.sudo().search([])
+
 
     
     
