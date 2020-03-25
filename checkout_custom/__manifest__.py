@@ -4,7 +4,7 @@
     'category': 'Sales',
     'version': '12.0.1.0.0',
     'license': 'OPL-1',
-    'depends': ['website_sale'],
+    'depends': ['base','website_sale'],
     'data': [
         'views/checkout_template_view.xml',
     ],
