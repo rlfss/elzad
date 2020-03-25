@@ -32,8 +32,8 @@ odoo.define('checkout_custom.website', function (require) {
         {   
           var conf_value = $('.oe_website_sale').find('.cart_values span.oe_currency_value').text();
           var cart_value = $('#order_total span.oe_currency_value').text();
-          var thousand_sep = new RegExp(escapeRegExp(constraints.thousands_sep),"g")
-          var decimal_sep = new RegExp(escapeRegExp(constraints.decimal_point),"g")
+          var cart=parseFloat(cart_value.replace(thousand_sep,'').replace(decimal_sep,'.'))
+          var check=parseFloat(conf_value.replace(thousand_sep,'').replace(decimal_sep,'.'))
           var cart=parseFloat(cart_value)
           var check=parseFloat(conf_value)
           var currency_symbol = $('.oe_website_sale').find('.cart_values').attr('currency_symbol');
