@@ -114,9 +114,7 @@ class WebsiteSale(WebsiteSale):
         }
         return request.render("website_sale.address", render_values)
 
-
-
-	@http.route(["/website/new_lang"], type='json', auth="public", methods=['POST'], website=True)
+	@http.route(["/website/min_lang"], type='json', auth="public", methods=['POST'], website=True)
 	def website_langauge(self, code, **kw):
 		lang_id = request.env['res.lang'].search([('code','=',code.replace('-','_'))])
 		return {
@@ -128,6 +126,6 @@ class WebsiteSale(WebsiteSale):
 
 	def checkout_redirection(self, order):
 		minimum_order_value = 1 if not request.website.minimum_order_value else request.website.minimum_order_value
-		if minimum_order_value and order.amount_total < minimum_order_value:
+		if  minimum_order_value and order.amount_total < minimum_order_value:
 			return request.redirect('/shop/cart')
 		return super(website_sale, self).checkout_redirection(order)
