@@ -7,8 +7,33 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
     var _t = core._t;
     var sAnimations = require('website.content.snippets.animation');
     var weContext = require('web_editor.context');
+    var publicWidget = require('web.public.widget');
+    var time = require('web.time');
 
+    publicWidget.registry.EmpPortalTimeOff = publicWidget.Widget.extend({
+        selector: '.checkout_autoformat',
+        events: {
+            'change input[name=phone]': '_onchange',
+        },
+
+    _onchange: function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        this._buttonExec($(ev.currentTarget), this._createChanges);
+    },
     
+    _createChanges: function () {
+        return this._rpc({
+            model : 'website',
+            method: 'getnewemail',
+            args: [{
+            phone: $('input[name="phone"]').val(),
+        }],
+        }).then(function(response){
+            self.$('input[name="email"]').val(response.email);                
+        })
+        
+    },
 
 
 
