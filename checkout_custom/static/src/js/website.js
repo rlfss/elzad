@@ -7,7 +7,25 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
     var _t = core._t;
     var sAnimations = require('website.content.snippets.animation');
     var weContext = require('web_editor.context');
+    var publicWidget = require('web.public.widget');
+    var time = require('web.time');
 
+    
+    
+    publicWidget.registry.checkout_custom = publicWidget.Widget.extend({
+        selector: '#wrap:has(.checkout_autoformat)',
+        events: {
+            'change input[name=phone]': '_onchange',
+        },
+
+    
+    _onchange: function (ev) {
+        var self = this;
+        var phone = self.$('input[name="phone"]').val();
+        self.$('input[name="email"]').val(phone);
+    },
+
+    
     $(document).ready(function(){
       function escapeRegExp(text) {
         return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
