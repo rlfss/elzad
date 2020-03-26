@@ -125,12 +125,6 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
             console.error(e);
           }
         });
-       $('.checkout_autoformat').on('change', 'input[name="phone"]', function (ev)
-        {
-        var self = this;
-        var phone = self.$('input[name="phone"]').val();
-        self.$('input[name="email"]').val(phone);
-        });
 
     });
     
