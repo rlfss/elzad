@@ -7,8 +7,6 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
     var _t = core._t;
     var sAnimations = require('website.content.snippets.animation');
     var weContext = require('web_editor.context');
-    var publicWidget = require('web.public.widget');
-    var time = require('web.time');
 
     
 
@@ -37,12 +35,6 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
       }
         
         
-       $('.checkout_autoformat').on('change', 'input[name$="phone"]', function (ev)
-        {
-        var self = this;
-        var phone = self.$('input[name="phone"]').val();
-        self.$('input[name="email"]').val(phone);
-        });
 
         $('.oe_website_sale').on('click', 'a[href$="/shop/checkout?express=1"]', function (ev)
         {   
@@ -133,6 +125,13 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
             console.error(e);
           }
         });
+       $('.checkout_autoformat').on('change', 'input[name="phone"]', function (ev)
+        {
+        var self = this;
+        var phone = self.$('input[name="phone"]').val();
+        self.$('input[name="email"]').val(phone);
+        });
+
     });
     
 
