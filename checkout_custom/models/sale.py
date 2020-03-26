@@ -65,7 +65,7 @@ class website(models.Model):
     @api.model
     def getnewemail(self, values):
         self = self.sudo()
-        if (values['phone']:
+        if values['phone']:
             phone = values['phone']
             email = str(phone)+'@elzad.com'
             return {

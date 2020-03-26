@@ -7,37 +7,7 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
     var _t = core._t;
     var sAnimations = require('website.content.snippets.animation');
     var weContext = require('web_editor.context');
-    var publicWidget = require('web.public.widget');
-    var time = require('web.time');
 
-    publicWidget.registry.EmpPortalTimeOff = publicWidget.Widget.extend({
-        selector: '.checkout_autoformat',
-        events: {
-            'change input[name="phone"]': '_onchange',
-        },
-
-    _onchange: function (ev) {
-        ev.preventDefault();
-        ev.stopPropagation();
-        this._buttonExec($(ev.currentTarget), this._createChanges);
-    },
-    
-    _createChanges: function () {
-        return this._rpc({
-            model : 'website',
-            method: 'getnewemail',
-            args: [{
-            phone: $('input[name="phone"]').val(),
-        }],
-        }).then(function(response){
-            self.$('input[name="email"]').val(response.email);                
-        })
-        
-    },
-
-
-
-    
     $(document).ready(function(){
       function escapeRegExp(text) {
         return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -58,8 +28,9 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
       } catch (e) {
         console.error(e);
       }
-        
-        
+        $("input[name='phone'").on('change', function () {
+        $("input[name='email'").val($("input[name='phone'").val() + '@elzad.com');
+        });
 
         $('.oe_website_sale').on('click', 'a[href$="/shop/checkout?express=1"]', function (ev)
         {   
@@ -150,11 +121,5 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
             console.error(e);
           }
         });
-
     });
-    
-
-    
-    
-    
 });
