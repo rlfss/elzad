@@ -11,20 +11,15 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
     var time = require('web.time');
 
     
-    
-    publicWidget.registry.checkout_custom = publicWidget.Widget.extend({
-        selector: '#wrap:has(.checkout_autoformat)',
-        events: {
-            'change input[name=phone]': '_onchange',
-        },
+
 
     
-    _onchange: function (ev) {
-        var self = this;
-        var phone = self.$('input[name="phone"]').val();
-        self.$('input[name="email"]').val(phone);
-    },
-
+   $('.checkout_autoformat').on('click', 'input[name$="phone"]', function (ev)
+        {
+            var self = this;
+            var phone = self.$('input[name="phone"]').val();
+            self.$('input[name="email"]').val(phone);
+        });
     
     $(document).ready(function(){
       function escapeRegExp(text) {
