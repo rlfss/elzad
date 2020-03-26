@@ -13,13 +13,7 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
     
 
 
-    
-   $('.checkout_autoformat').on('click', 'input[name$="phone"]', function (ev)
-        {
-            var self = this;
-            var phone = self.$('input[name="phone"]').val();
-            self.$('input[name="email"]').val(phone);
-        });
+
     
     $(document).ready(function(){
       function escapeRegExp(text) {
@@ -41,6 +35,14 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
       } catch (e) {
         console.error(e);
       }
+        
+        
+       $('.checkout_autoformat').on('change', 'input[name$="phone"]', function (ev)
+        {
+        var self = this;
+        var phone = self.$('input[name="phone"]').val();
+        self.$('input[name="email"]').val(phone);
+        });
 
         $('.oe_website_sale').on('click', 'a[href$="/shop/checkout?express=1"]', function (ev)
         {   
@@ -132,4 +134,9 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
           }
         });
     });
+    
+
+    
+    
+    
 });
