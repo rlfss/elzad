@@ -59,4 +59,4 @@ class website(models.Model):
     _inherit = 'website'
 
     minimum_order_value = fields.Float(string='Minimum Cart Value', digits=dp.get_precision('Product Price'))
-    currency_id = fields.Many2one('res.currency', 'Currency',default=lambda self: self.env.user.company_id.currency_id.id,required=True)
+    c_id = fields.Many2one('res.currency', 'Currency',default=lambda self: self.env.user.company_id.currency_id.id,required=True)
