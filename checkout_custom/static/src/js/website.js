@@ -13,7 +13,7 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
     publicWidget.registry.EmpPortalTimeOff = publicWidget.Widget.extend({
         selector: '.checkout_autoformat',
         events: {
-            'change input[name=phone]': '_onchange',
+            'change input[name="phone"]': '_onchange',
         },
 
     _onchange: function (ev) {
