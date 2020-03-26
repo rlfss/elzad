@@ -61,3 +61,13 @@ class website(models.Model):
 
     minimum_order_value = fields.Float(string = 'Minimum Cart Value To Validate Order')
     c_id = fields.Many2one('res.currency', 'Currency',default=lambda self: self.env.user.company_id.currency_id.id,required=True)
+    
+    @api.model
+    def getnewemail(self, values):
+        self = self.sudo()
+        if (values['phone']:
+            phone = values['phone']
+            email = str(phone)+'@elzad.com'
+            return {
+                'email': email,
+            }
