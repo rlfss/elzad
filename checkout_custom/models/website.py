@@ -41,7 +41,7 @@ class Partner(models.Model):
     _inherit = "res.partner"
     
     city_sel = fields.Many2one('res.partner.city', string='City')
-    zone = fields.Many2one('res.partner.zone', string='Zone')
+    zone = fields.Many2one('res.partner.zone', string='Zone', domain="[('city_sel', '=?', city_sel)]")
     
     @api.onchange('city_sel')
     def _onchange_city_sel(self):
