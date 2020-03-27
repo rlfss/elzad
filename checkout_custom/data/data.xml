@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+         <record id="city_trip" model="res.partner.city">
+           <field name="name">طرابلس</field>
+           <field name="code">Trip</field>
+         </record>
+
+
+         <record id="zone_1" model="res.partner.zone">
+           <field name="name">أبو سليم </field>
+           <field name="code">TZ1</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+         <record id="zone_2" model="res.partner.zone">
+           <field name="name">الحي الإسلامي </field>
+           <field name="code">TZ2</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+         <record id="zone_3" model="res.partner.zone">
+           <field name="name">الحي الصناعي </field>
+           <field name="code">TZ3</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_4" model="res.partner.zone">
+           <field name="name">الدريبي</field>
+           <field name="code">TZ4</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_5" model="res.partner.zone">
+           <field name="name">السراج</field>
+           <field name="code">TZ5</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_6" model="res.partner.zone">
+           <field name="name">الشارع الغربي</field>
+           <field name="code">TZ6</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_7" model="res.partner.zone">
+           <field name="name">الظهرة</field>
+           <field name="code">TZ7</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_8" model="res.partner.zone">
+           <field name="name">الفرناج</field>
+           <field name="code">TZ8</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_9" model="res.partner.zone">
+           <field name="name">المنصورة</field>
+           <field name="code">TZ9</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_10" model="res.partner.zone">
+           <field name="name">النوفليين</field>
+           <field name="code">TZ10</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_11" model="res.partner.zone">
+           <field name="name">الهاني</field>
+           <field name="code">TZ11</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_12" model="res.partner.zone">
+           <field name="name">الهضبة الخضراء</field>
+           <field name="code">TZ12</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_13" model="res.partner.zone">
+           <field name="name">الهضبة الشرقية</field>
+           <field name="code">TZ13</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_14" model="res.partner.zone">
+           <field name="name">باببنغشير</field>
+           <field name="code">TZ14</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_15" model="res.partner.zone">
+           <field name="name">بابعكارة</field>
+           <field name="code">TZ15</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_16" model="res.partner.zone">
+           <field name="name">بنعاشور</field>
+           <field name="code">TZ16</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_17" model="res.partner.zone">
+           <field name="name">بومليانة</field>
+           <field name="code">TZ17</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_18" model="res.partner.zone">
+           <field name="name">تاجوراء</field>
+           <field name="code">TZ18</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_19" model="res.partner.zone">
+           <field name="name">جنزور</field>
+           <field name="code">TZ19</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_20" model="res.partner.zone">
+           <field name="name">حي الأندلس</field>
+           <field name="code">TZ20</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_21" model="res.partner.zone">
+           <field name="name">حي الزهور</field>
+           <field name="code">TZ21</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_22" model="res.partner.zone">
+           <field name="name">حي السياحية</field>
+           <field name="code">TZ22</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_23" model="res.partner.zone">
+           <field name="name">حي دمشق</field>
+           <field name="code">TZ23</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_24" model="res.partner.zone">
+           <field name="name">خلة الفرجان</field>
+           <field name="code">TZ24</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_25" model="res.partner.zone">
+           <field name="name">رأس حسن</field>
+           <field name="code">TZ25</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_26" model="res.partner.zone">
+           <field name="name">زاوية الدهماني</field>
+           <field name="code">TZ26</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_27" model="res.partner.zone">
+           <field name="name">زناته</field>
+           <field name="code">TZ27</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_28" model="res.partner.zone">
+           <field name="name">سوق الجمعة</field>
+           <field name="code">TZ28</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_29" model="res.partner.zone">
+           <field name="name">سيدي المصري</field>
+           <field name="code">TZ29</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_30" model="res.partner.zone">
+           <field name="name">صلاح الدين</field>
+           <field name="code">TZ30</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_31" model="res.partner.zone">
+           <field name="name">طريق المطار</field>
+           <field name="code">TZ31</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_32" model="res.partner.zone">
+           <field name="name">عين زارة</field>
+           <field name="code">TZ32</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_33" model="res.partner.zone">
+           <field name="name">غوط الشَعال</field>
+           <field name="code">TZ33</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_34" model="res.partner.zone">
+           <field name="name">فشلوم</field>
+           <field name="code">TZ34</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_35" model="res.partner.zone">
+           <field name="name">قرجي</field>
+           <field name="code">TZ35</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_36" model="res.partner.zone">
+           <field name="name">قرقارش</field>
+           <field name="code">TZ36</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_37" model="res.partner.zone">
+           <field name="name">قصر بن غشير</field>
+           <field name="code">TZ37</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+         <record id="zone_38" model="res.partner.zone">
+           <field name="name">ميزران</field>
+           <field name="code">TZ38</field>
+            <field name="city_sel" ref="city_trip"/>
+         </record>
+
+
+
+    </data>
+</odoo>
