@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	  <template id="assets_frontend" inherit_id="website.assets_frontend" name="Cart">
+	  <xpath expr="." position="inside">
+		<script type="text/javascript" src="/checkout_custom/static/src/js/website.js"></script>
+	      </xpath>
+	  </template>
+
+	
+        <record id="view_order_form_inh" model="ir.ui.view">
+            <field name="name">delivery.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                  <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="customer_phone"/>
+                    <field name="customer_zone"/>
+                    <field name="customer_street"/>
+                    <field name="sales_agent"/>
+		    </xpath>
+	    </field>
+	  </record>
+
+    <template id="checkout_button_inherited_cart" inherit_id="website_sale.cart" name="Checkout Repalced">
+        <xpath expr="//div/div[@class='col-12 col-xl-8 oe_cart']//a[@href='/shop/checkout?express=1']" position="inside">
+          <p class="oe_currency_value min_cart_values" t-att-conf_value="website_sale_order.sudo().get_minimun_cart_value()" t-att-currency_symbol="website_sale_order.pricelist_id.currency_id.symbol" style="margin:0px;"><t t-esc='website_sale_order.sudo().get_minimun_cart_value()'  t-options='{
+                 "widget": "monetary",
+                 "display_currency": website.pricelist_id.currency_id
+             }'/></p>
+        </xpath>
+    </template>
+
+	
+        <record id="view_website_form_inh" model="ir.ui.view">
+            <field name="name">website.form</field>
+            <field name="model">website</field>
+            <field name="inherit_id" ref="website.view_website_form"/>
+            <field name="arch" type="xml">
+                  <xpath expr="//field[@name='domain']" position="after">
+		    <label for='c_id' string='Minimum Order Value'/>
+		    <div class='d-flex flex-column'>
+			<field name="c_id" />
+			<field name='minimum_order_value' widget='monetary' options="{'currency_field': 'c_id'}" />
+		    </div>
+                  </xpath>
+            </field>
+        </record>
+
+	
+    <template id="gst_report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-set='address']" position="replace">
+	        <t t-set="address">
+	            <div t-field="doc.partner_id"
+	                t-options='{"widget": "contact", "fields": ["name", "address", "phone"], "no_marker": True, "phone_icons": True}' />
+	            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+	            <p t-if="doc.customer_zone"><span t-field="doc.customer_zone.name"/></p>
+		
+	        </t>
+        </xpath>
+    </template>
+
+
+</odoo>
