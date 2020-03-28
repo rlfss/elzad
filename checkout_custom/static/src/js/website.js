@@ -48,8 +48,9 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
                 $(this).popover({
                
                   title: _t("WARNING!!"),
-                  placement:"left",
+                  placement:"top",
                   trigger:'focus',
+                  container:'table',
                 });
                 $(this).attr('data-content',_t("A minimum purchase total of ")+ currency_symbol+" "+ conf_value+_t(" is required to validate your order, current purchase total is ")+ currency_symbol+" "+ cart_value);
                 $(this).popover('show');
