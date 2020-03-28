@@ -48,14 +48,14 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
                 $(this).popover({
                
                   title: _t("WARNING!!"),
-                  placement:"top",
+                  placement:"left",
                   trigger:'focus',
                 });
                 $(this).attr('data-content',_t("A minimum purchase total of ")+ currency_symbol+" "+ conf_value+_t(" is required to validate your order, current purchase total is ")+ currency_symbol+" "+ cart_value);
                 $(this).popover('show');
 
             }
-            setTimeout(function() {$link.popover("dispose");},3000);
+            setTimeout(function() {$link.popover("dispose");},10000);
         });
 
        var totalPriceElem = $('#sub_total span');
