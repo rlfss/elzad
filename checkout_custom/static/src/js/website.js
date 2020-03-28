@@ -28,9 +28,9 @@ odoo.define('checkout_custom.checkout_custom', function (require) {
       } catch (e) {
         console.error(e);
       }
-        $("input[name='phone'").on('change', function () {
-        $("input[name='email'").val($("input[name='phone'").val() + '@elzad.com');
-        });
+//         $("input[name='phone'").on('change', function () {
+//         $("input[name='email'").val($("input[name='phone'").val() + '@elzad.com');
+//         });
 
         $('.oe_website_sale').on('click', 'a[href$="/shop/checkout?express=1"]', function (ev)
         {   
