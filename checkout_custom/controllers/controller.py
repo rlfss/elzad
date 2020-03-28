@@ -9,7 +9,7 @@ _logger = logging.getLogger(__name__)
 class WebsiteSale(WebsiteSale):
 
     def _get_mandatory_billing_fields(self):
-        return ["name", "phone", "street", "city_sel", "zone", "country_id"]
+        return ["name", "phone", "email", "street", "city_sel", "zone", "country_id"]
 
 
 
