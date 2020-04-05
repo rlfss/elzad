@@ -28,7 +28,7 @@
                 </td>
             </t>
         </xpath>
-        <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th[1]" position="after">
+        <xpath expr="//table[hasclass('table-sm')][1]/thead/tr/th[1]" position="after">
             <t t-if="line.product_id.categ_id ">
                 <th>Category</th>
             </t>
