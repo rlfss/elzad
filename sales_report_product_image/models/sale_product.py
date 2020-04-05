@@ -6,7 +6,8 @@ from odoo import fields, models
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    print_image = fields.Boolean(default=True,'Print Image', help="""If ticked, you can see the product image in report of sale order/quotation""")
+    print_image = fields.Boolean('Print Image', default=True)
+
     image_sizes = fields.Selection(
         [('image', 'Big sized Image'), ('image_medium', 'Medium Sized Image'),
          ('image_small', 'Small Sized Image')],
