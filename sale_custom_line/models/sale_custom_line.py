@@ -13,7 +13,6 @@ class SaleOrderLine(models.Model):
 
     @api.depends('order_id.order_line')
     def _compute_get_number(self):
-        self.number = 0
         for order in self:
             number = 0
             for line in order.order_id.order_line:
