@@ -2,7 +2,7 @@
 <odoo>
 
     <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
-        <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th[1]" position="before">
+        <xpath expr="//table[hasclass('table-sm')][1]/thead/tr/th[1]" position="before">
                 <th>SEQ</th>
             <t t-if="doc.print_image and doc.image_sizes in ('image', 'image_medium', 'image_small') ">
                 <th>Product Image</th>
