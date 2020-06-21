@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="frontend_layout" inherit_id="portal.frontend_layout" name="Elzad Frontend Layout">
+        <xpath expr="//header" position="replace">
+            <header class="shadow-sm">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light px-0 align-items-lg-start">
+                        <a class="navbar-brand" href="#">
+                            <img src="/elzad_theme/static/src/images/logo.png" class="img-fluid" alt=""/>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="container-fluid">
+                                <div class="row ">
+                                    <div class="col-12">
+                                        <div class="row ">
+                                            <div class="col-12 col-lg-8 mt-2 mt-lg-0 d-none-sticky">
+                                                <div class="search-container">
+                                                    <form action="#">
+                                                        <button class="btn-4" type="submit">
+                                                            <i class="far fa-search"></i>
+                                                        </button>
+                                                        <input type="text" class="shadow-sm" placeholder="Search..."/>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mt-3 mt-lg-0 d-none-sticky">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a href="#"
+                                                           class="shadow-sm my-btn btn-4 pinkColor-bg d-block w-100">
+                                                            SIGNIN
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a href="#"
+                                                           class="shadow-sm my-btn btn-4 greenColor-bg d-block w-100">
+                                                            SIGNUP
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row  mt-lg-2 mt-0">
+                                            <div class="col-12 col-lg-6">
+                                                <ul class="navbar-nav mr-auto">
+                                                    <li class="nav-item active">
+                                                        <a class="nav-link" href="#">Sections</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="/shop">Store</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#">Offers</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#">Loyalty card</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-12 col-lg-5">
+                                                <ul class="navbar-nav mr-auto">
+                                                    <li class="nav-item dropdown cart-dropdown">
+                                                        <a class="nav-link dropdown-toggle" href="#" id="cart-dropdown"
+                                                           role="button"
+                                                           data-toggle="dropdown" aria-haspopup="true"
+                                                           aria-expanded="false">
+                                                            Carrier
+                                                            <i class="far fa-shopping-cart">
+                                                                <span>11</span>
+                                                            </i>
+                                                            <span>0.00 $</span>
+                                                        </a>
+                                                        <div class="dropdown-menu" aria-labelledby="cart-dropdown">
+                                                            <p>
+                                                                Number of products :
+                                                                <span>0</span>
+                                                            </p>
+                                                            <p>
+                                                                You saved :
+                                                                <span class="greenColor-color">00.00$</span>
+                                                            </p>
+                                                            <div class="row justify-content-between">
+                                                                <div class="col-auto ">
+                                                                    <p>
+                                                                        Total :
+                                                                        <span class="greenColor-color">00.00$</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-auto pl-0">
+                                                                    <a href="#"
+                                                                       class="my-btn btn-4 greenColor-bg w-100 d-block pt-0 pb-1 pl-1 pr-1 fs-13">
+                                                                        Full request
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cart-dropdown-footer greenColor-bg text-white text-center py-1">
+                                                                <p class="m-0">Total product must be more than 50$</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </nav>
+                </div>
+            </header>
+        </xpath>
+    </template>
+
+
+    <template id="footer_custom" inherit_id="website.footer_custom" name="Elzad Footer">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                <footer class="footer pt-5 mt-5">
+                    <div class="download-section bg-white py-4">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-2">
+                                    <div class="text-center">
+                                        <a href="#" class="d-block footer-logo">
+                                            <img src="/elzad_theme/static/src/images/logo.png" class="img-fluid" alt=""/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-md-auto text-center text-md-left">
+                                            <h5 class="mb-0 mt-lg-0 mt-3">
+                                                Download our app now
+                                            </h5>
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <div class="download-button-container">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-6 col-lg-4 col-md-5">
+                                                        <a href="#" class="d-block btn-4 text-center">
+                                                            <img src="/elzad_theme/static/src/images/store-btn.png" class="img-fluid" alt=""/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6 col-lg-4 col-md-5 text-center">
+                                                        <a href="#" class="d-block btn-4">
+                                                            <img src="/elzad_theme/static/src/images/play.png" class="img-fluid" alt=""/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-container py-4">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4 text-lg-left text-center mb-lg-0 mb-4">
+                                    <div class="d-inline-block text-center footer-social">
+                                        <p>Social Media</p>
+                                        <ul class="list-inline m-0">
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fab fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 text-lg-right text-center">
+                                    <div class="d-inline-block text-center text-lg-left">
+                                        <ul class="footer-list list-inline">
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    Sections
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    Store
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    Offers
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    Loyalty card
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    About us
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    call us
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="footer-list list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="mailto:info@shopstr.az">
+                                                    <i class="far fa-envelope"></i>
+                                                    info@shopstr.az
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="tel:0595779004">
+                                                    <i class="fas fa-phone"></i>
+                                                    (012) 505-12-55
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

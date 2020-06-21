@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Elzad Assets">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/elzad_theme/static/src/css/bootstrap.min.css"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/css/scss/_functions.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/css/scss/_variables.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/css/scss/mixins/_breakpoints.scss"/>
+            <link rel="stylesheet" type="text/css" href="/elzad_theme/static/src/css/fontawesome-all.css"/>
+            <link rel="stylesheet" type="text/css" href="/elzad_theme/static/src/css/slick.css"/>
+            <link rel="stylesheet" type="text/css" href="/elzad_theme/static/src/css/slick-theme.css"/>
+            <link rel="stylesheet" type="text/css" href="/elzad_theme/static/src/css/datepicker.min.css"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/css/style-en.scss"/>
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+<!--            <script src="/elzad_theme/static/src/js/jquery-1.11.1.min.js"></script>-->
+            <script src="/elzad_theme/static/src/js/bootstrap.min.js"></script>
+            <script src="/elzad_theme/static/src/js/slick.min.js"></script>
+            <script src="/elzad_theme/static/src/js/jquery.validate.min.js"></script>
+            <script src="/elzad_theme/static/src/js/datepicker.min.js"></script>
+            <script src="/elzad_theme/static/src/js/main.js"></script>
+        </xpath>
+    </template>
+</odoo>
