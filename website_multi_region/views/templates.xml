@@ -50,4 +50,25 @@
             <!-- popup end -->
           </xpath>
         </template>
+
+        <template id="barnche_selection" inherit_id="website.layout" name="Footer Branche Button">
+        <xpath expr = 
+        	"//footer//div[@class='o_footer_copyright']//div[@class='container']//div[@class='row']//div[@class='col-lg-6 text-muted text-center text-md-left']" position="before">
+        	  <t t-set="br" t-value="request.env['website.branches'].get_branches_available()" />
+        	  <li class="list-inline-item">
+        	  	<div class="dropup">
+                <a role="button" href="#" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">
+                   	Branches
+                   	</a>
+                        <div class="dropdown-menu" role="menu">
+                            <t t-foreach="br" t-as="pl">
+                                <a role="menuitem" t-att-href="'/shop/change_pricelist/%s' % pl.pricelist.id" class="dropdown-item">
+                                    <span class="switcher_pricelist" t-att-data-pl_id="pl.pricelist.id" t-esc="pl.name" />
+                                </a>
+                            </t>
+                        </div>
+                    </div>
+                    </li>
+        </xpath>
+        </template>
     </odoo>

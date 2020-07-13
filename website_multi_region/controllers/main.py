@@ -8,5 +8,6 @@ class Regoins(http.Controller):
         if (pl.selectable or pl == request.env.user.partner_id.property_product_pricelist) \
                 and request.website.is_pricelist_available(pl.id):
             request.session['website_sale_current_pl'] = pl
+            # request.session['website_sale_current_br'] = br.name
             request.website.sale_get_order(force_pricelist=pl)
         return request.redirect(request.httprequest.referrer or '/shop')

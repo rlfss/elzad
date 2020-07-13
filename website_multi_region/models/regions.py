@@ -13,3 +13,8 @@ class Regions(models.Model):
     def get_branches_available(self):
         return self.search([])
 
+    # def get_current_branch(self):
+    #     pl = None
+    #     pl = self.search(request.session['website_sale_current_pl'])
+    #     return pl
+
