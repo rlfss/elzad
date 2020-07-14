@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.http import request
 
 
 class Regions(models.Model):
@@ -13,8 +14,8 @@ class Regions(models.Model):
     def get_branches_available(self):
         return self.search([])
 
-    # def get_current_branch(self):
-    #     pl = None
-    #     pl = self.search(request.session['website_sale_current_pl'])
-    #     return pl
+    def get_current_branch(self):
+        if request and request.session.get('website_sale_current_br'):
+            br = self.env['website.branches'].browse(request.session['website_sale_current_br'])
+            return br.id
 

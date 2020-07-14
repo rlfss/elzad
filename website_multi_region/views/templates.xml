@@ -36,9 +36,9 @@
                                             </a>
                                                 <div class="dropdown-menu" role="menu">
                                                     <t t-foreach="br" t-as="pl">
-                                                        <a role="menuitem" t-att-href="'/shop/change_pricelist/%s' % pl.pricelist.id" class="dropdown-item">
-                                                            <span class="switcher_pricelist" t-att-data-pl_id="pl.pricelist.id" t-esc="pl.name" />
-                                                        </a>
+                                    <a role="menuitem" t-att-href="'/shop/change_branch/%s' % pl.id" class="dropdown-item">
+                                            <span class="switcher_pricelist" t-esc="pl.name" />
+                                        </a>
                                                     </t>
                                                 </div>
                                             </div>
@@ -58,12 +58,14 @@
         	  <li class="list-inline-item">
         	  	<div class="dropup">
                 <a role="button" href="#" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">
-                   	Branches
+                   	<!-- Branches -->
+                    <t t-set="curr_br" t-value="request.env['website.branches'].get_current_branch()" />
+                    <t t-esc="curr_br or ' - '" />
                    	</a>
                         <div class="dropdown-menu" role="menu">
                             <t t-foreach="br" t-as="pl">
-                                <a role="menuitem" t-att-href="'/shop/change_pricelist/%s' % pl.pricelist.id" class="dropdown-item">
-                                    <span class="switcher_pricelist" t-att-data-pl_id="pl.pricelist.id" t-esc="pl.name" />
+                                <a role="menuitem" t-att-href="'/shop/change_branch/%s' % pl.id" class="dropdown-item">
+                                    <span class="switcher_pricelist" t-esc="pl.name" />
                                 </a>
                             </t>
                         </div>
