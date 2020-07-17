@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--  Bar top  -->
+    <template id="bar_top" name="Bar top">
+        <div class="bar-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <t t-call="website.language_selector"/>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="mini-nav mb-0">
+                            <li>
+                                <a href="/"><i class="fa fa-home"></i>&amp;nbsp;Home
+                                </a>
+                            </li>
+                            <li t-if="not user_id._is_public()">
+                                <a href="/my/home"><i class="fa fa-user"></i>&amp;nbsp;My account
+                                </a>
+                            </li>
+                            <li t-if="user_id._is_public()">
+                                <a t-attf-href="/web/signup?{{ keep_query() }}"><i class="fa fa-lock"></i>&amp;nbsp;Sign
+                                    Up
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/"><i class="fa fa-envelope"></i>&amp;nbsp;Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!--  Frontend Layout  -->
+    <template id="frontend_layout" inherit_id="portal.frontend_layout" name="Main Frontend Layout Elzad">
+        <xpath expr="//header" position="before">
+            <t t-call="elzad_theme.bar_top"/>
+        </xpath>
+        <xpath expr="//li[@class='nav-item divider']" position="replace"/>
+        <xpath expr="//li[@class='nav-item dropdown']" position="replace"/>
+    </template>
+
+    <!--  Wishlist  -->
+    <template id="header_wish" inherit_id="website_sale_wishlist.header" name="Header Shop Wishlist Link Elzad">
+        <xpath expr="//li[@id='my_wish']" position="replace">
+            <li id="my_wish" class="nav-item" t-att-style="not wishcount and 'display:none;'">
+                <a href="/shop/wishlist" class="nav-link">
+                    <i class="fa fa-heart-o"/>
+                    <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-light">
+                        <t t-esc='wishcount'/>
+                    </sup>
+                </a>
+            </li>
+        </xpath>
+    </template>
+
+    <!--  Cart  -->
+    <template id="header_cart" inherit_id="website_sale.header" name="Header Shop My Cart Link Elzad">
+        <xpath expr="//a[@class='nav-link']" position="replace">
+            <a href="/shop/cart" class="nav-link">
+                <i class="fa fa-shopping-cart"></i>
+                <sup t-attf-class="my_cart_quantity badge badge-light"
+                     t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
+            </a>
+        </xpath>
+    </template>
+
+    <!--  Search  -->
+    <template id="custom_seach_icon_header" inherit_id="website.layout" name="Header Product Search Icon">
+        <xpath expr="//header//ul[@id='top_menu']/li" position="before">
+            <li id="nav-search" class="nav-item">
+                <a href="#search-button" class="nav-link">
+                    <i class="fa fa fa-search"/>
+                </a>
+                <div class="search" id="search-box">
+                    <form action='/shop' method="get">
+                        <input type="text" name="search"
+                               placeholder="Product Name"
+                               class="search-input" t-att-value="search"/>
+                        <button class="btn btn-success btn-slider">Search</button>
+                        <button type="button" class="close">×</button>
+                    </form>
+                </div>
+            </li>
+        </xpath>
+    </template>
+
+</odoo>

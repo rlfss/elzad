@@ -1,0 +1,27 @@
+.pagination{
+    .page-item{
+        &.active{
+            .page-link {
+                color: #ffffff;
+                pointer-events: none;
+                cursor: auto;
+                background-color: $secondary_color;
+                border-color:$secondary_color;
+            }
+        }
+     }
+    .page-link{
+        position: relative;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+        color: $secondary_color;
+        background-color: #FFFFFF;
+        border: 1px solid #dee2e6;
+        &:not(:disabled):not(.disabled) {
+            cursor: pointer;
+        }
+    }
+
+}

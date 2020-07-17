@@ -1,0 +1,249 @@
+body{
+    background-color:#fafafa;
+    font-size:14px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+body{
+    font-family:$primary_font_family;
+}
+.btn-secondary {
+    color: #FFFFFF;
+    background-color: #875A7B;
+    border-color: #875A7B;
+}
+.btn-success {
+    background-color: $primary_color;
+    border-color: $primary_color;
+}
+.btn-success:hover,
+.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
+    background-color:  $primary_color_hover;
+    border-color:  $primary_color_hover;
+}
+.btn-slider{
+    font-size:20px;
+    min-width:180px;
+    height:50px;
+    padding:10px;
+    color:white!important;
+    border-radius:12px;
+}
+
+.btn-link,a {
+    color: $secondary_color;
+}
+.btn-link:hover,
+a:hover {
+    color: $secondary_color_hover;
+}
+a{
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+// bar-top
+.bar-top{
+    background-color:#fafafa;
+    padding:5px 0;
+    @include box-shadow-1;
+    position:relative;
+    z-index:999;
+    .row{
+        [class*='col']:last-child{
+            @media (min-width: 768px) {
+                text-align:right;
+            }
+        }
+        @media (max-width: 767.9px) {
+            text-align:center;
+        }
+    }
+    .mini-nav{
+        padding-left:0;
+        list-style:none;
+        li{
+            display:inline-block;
+            margin:4px;
+            a{
+                color:$grey_1;
+                text-decoration:none;
+                font-size:13px;
+                &:hover{
+                    color:$secondary_color;
+                }
+            }
+        }
+    }
+}
+.js_language_selector{
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+    @media (max-width: 767.9px) {
+        align-items: center;
+        justify-content: center;
+    }
+    .list-inline-item{
+        display:block;
+        &:last-child{
+            margin-top:-4px;
+            a{
+                font-size:12px;
+            }
+        }
+    }
+    .dropdown{
+        margin:4px;
+        .btn{
+            background:transparent;
+            color:$grey_1;
+             font-size:13px;
+             border:none;
+             &:after{
+                color:$grey_1;
+             }
+             &:focus,&:active,&.active{
+                color:#9e9e9e!important;
+                background:transparent!important;
+                border:none!important;
+                outline-style: none!important;
+                box-shadow:none!important;
+             }
+        }
+        .dropdown-menu{
+            font-size:13px;
+        }
+    }
+}
+
+.dropdown-menu {display: block;visibility: hidden;opacity:0;transition:.5s ease all;}
+.dropdown-menu.show {display: block;visibility: visible;opacity:1;transition:.5s ease all;}
+
+.dropdown-item {
+    &:hover,&:focus,&:active{
+        background-color: $secondary_color;
+        color:#fff;
+    }
+}
+
+/*owl-nav-1*/
+.owl-theme{
+    &.owl-nav-1{
+        overflow:hidden;
+        &:hover{
+            .owl-nav{
+                [class*=owl-]{
+                    transform:translate(0,-50%);
+                }
+            }
+        }
+        .owl-nav{
+            margin-top:0;
+            [class*=owl-]{
+                outline-style:none;
+                color:$grey_1;
+                font-size:40px;
+                margin:0;
+                padding:8px 10px!important;
+                background-color:#FAFAFA;
+                @include box-shadow-1;
+                position:absolute;
+                top:50%;
+                transition: transform .5s ease-in-out;
+            }
+            .owl-next{
+                border-radius: 18px 0px 0px 18px;
+                right:0;
+                transform:translate(102%,-50%);
+            }
+            .owl-prev{
+                border-radius: 0px 18px 18px 0px;
+                left:0;
+                transform:translate(-102%,-50%);
+            }
+        }
+    }
+}
+
+
+//
+
+@-webkit-keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(158, 158, 158, 0.4);
+  }
+  to {
+    box-shadow: 0 0 0 45px rgba(158, 158, 158, 0);
+  }
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(158, 158, 158, 0.4);
+  }
+  to {
+    box-shadow: 0 0 0 45px rgba(158, 158, 158, 0);
+  }
+}
+.highlight {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+//           a{
+//             position:relative;
+//             z-index:9999;
+//           }
+}
+.highlight:before, .highlight:after {
+  content: "";
+  width: 0%;
+  height: 0%;
+  position: absolute;
+  visibility: hidden;
+  border-radius: 10px;
+}
+.highlight:before {
+  border-top: 1px solid $grey_1;
+  border-right: 1px solid $grey_1;
+  -webkit-transition: width 0.1s ease 0.3s, height 0.1s ease 0.2s, visibility 0s 0.4s;
+  transition: width 0.1s ease 0.3s, height 0.1s ease 0.2s, visibility 0s 0.4s;
+  top: 0;
+  left: 0;
+}
+.highlight:after {
+  border-left: 1px solid $grey_1;
+  border-bottom: 1px solid $grey_1;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: width 0.1s ease 0.1s, height 0.1s ease, visibility 0s 0.2s;
+  transition: width 0.1s ease 0.1s, height 0.1s ease, visibility 0s 0.2s;
+}
+.highlight:not(.collapsed),
+.highlight:hover {
+  -webkit-animation: pulse 1s ease-out 0.4s;
+          animation: pulse 1s ease-out 0.4s;
+  color: $grey_1;
+}
+.highlight:not(.collapsed):before,.highlight:not(.collapsed):after,
+.highlight:hover:before, .highlight:hover:after {
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+}
+.highlight:not(.collapsed):before,
+.highlight:hover:before {
+  -webkit-transition: width 0.1s ease, height 0.1s ease 0.1s;
+  transition: width 0.1s ease, height 0.1s ease 0.1s;
+}
+.highlight:not(.collapsed):after,
+.highlight:hover:after {
+  -webkit-transition: width 0.1s ease 0.2s, height 0.1s ease 0.3s, visibility 0s 0.2s;
+  transition: width 0.1s ease 0.2s, height 0.1s ease 0.3s, visibility 0s 0.2s;
+}

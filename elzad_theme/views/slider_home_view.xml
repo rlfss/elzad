@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="slider_home_form_view" model="ir.ui.view">
+            <field name="name">slider.home.form</field>
+            <field name="model">slider.home</field>
+            <field name="arch" type="xml">
+                <form string="Slider home">
+                    <sheet>
+                        <field name="image" widget='image' class="oe_avatar"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="link"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="slider_home_tree" model="ir.ui.view">
+            <field name="name">slider.home.tree</field>
+            <field name="model">slider.home</field>
+            <field name="arch" type="xml">
+                <tree string="Slider home">
+                    <field name="name"/>
+                    <field name="link"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_slider_home_menu" model="ir.actions.act_window">
+            <field name="name">Slider home</field>
+            <field name="res_model">slider.home</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="slider_home_tree"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem name="Slider home"
+                  id="menu_slider_home"
+                  sequence="11"
+                  parent="website.menu_website_configuration"
+                  action="action_slider_home_menu"/>
+    </data>
+</odoo>

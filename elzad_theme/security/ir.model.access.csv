@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_slider_home_user,elzad_theme.slider.home.user,elzad_theme.model_slider_home,,1,0,0,0
+access_slider_home_manager,elzad_theme.slider.home.manager,elzad_theme.model_slider_home,,1,1,1,1
