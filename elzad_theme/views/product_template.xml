@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="product.product_normal_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//page[last()]" position="after">
-                <page name="website" string="Website" attrs="{'invisible': [('is_published', '=', False)]}">
+                <page name="website" string="Website">
                     <group>
                         <group>
                             <field name="is_offers"/>
