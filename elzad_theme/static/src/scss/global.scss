@@ -6,11 +6,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 body{
     font-family:$primary_font_family;
 }
-.btn-secondary {
-    color: #FFFFFF;
-    background-color: #875A7B;
-    border-color: #875A7B;
-}
 .btn-success {
     background-color: $primary_color;
     border-color: $primary_color;
@@ -246,4 +241,11 @@ a{
 .highlight:hover:after {
   -webkit-transition: width 0.1s ease 0.2s, height 0.1s ease 0.3s, visibility 0s 0.2s;
   transition: width 0.1s ease 0.2s, height 0.1s ease 0.3s, visibility 0s 0.2s;
+}
+
+//title_page
+.title_page{
+    font-size:30px;
+    text-transform: uppercase;
+    margin:0 0 15px 15px;
 }

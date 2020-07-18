@@ -4,6 +4,8 @@
         <xpath expr="//link[last()]" position="after">
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/variable.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/button.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/form.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/login.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/global.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/pagination.scss"/>
 

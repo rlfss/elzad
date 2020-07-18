@@ -1,0 +1,18 @@
+.oe_login_form, .oe_signup_form, .oe_reset_password_form{
+    margin:0 auto;
+}
+.oe_website_login_container{
+    background:#ffffff;
+    margin-top:25px;
+    margin-bottom:25px;
+    padding:25px;
+    @include box-shadow-1;
+    @include border-radius-1;
+    .field-db{
+        .input-group-append{
+            .btn{
+                border-radius: 0 12px 12px 0;
+            }
+        }
+    }
+}
