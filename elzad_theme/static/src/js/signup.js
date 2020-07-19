@@ -107,7 +107,7 @@
                             '</div></div>'+
                             '<div class="col-md-4">'+
                             '<div class="form-group field-sex field-radio">'+
-                            '<label for="sex">&amp;nbsp;</label>'+
+                            '<label for="sex"></label>'+
                             '<div class="d-flex">'+
                             '<div class="mr-10">'+
                             '<input type="radio" id="male" name="sex" value="male" checked="checked"'+
