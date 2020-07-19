@@ -25,6 +25,15 @@
                 </div>
             </div>
 
+                <t t-set="partner_title" t-value="request.env['res.partner.title'].search([])"/>
+                <select class="form-control" id="title" name="title">
+                    <t t-foreach="partner_title" t-as="title">
+                        <option t-att-value="title.id">
+                            <t t-esc="title.name"/>
+                        </option>
+                    </t>
+                </select>
+
             <div id="content_form_signup" class="row"/>
 
             <div class="acceptterms">
@@ -51,6 +60,7 @@
                 <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link btn-sm mt-1" role="button">Already
                     have an account?
                 </a>
+
                 <div class="o_login_auth"/>
             </div>
         </xpath>
