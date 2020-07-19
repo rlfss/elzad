@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="login_layout_elzad" inherit_id="website.login_layout" name="Website Login Layout Elzad">
-        <xpath expr="//div[@class='oe_website_login_container']" position="replace">
+        <xpath expr="//div[hasclass('oe_website_login_container')]" position="replace">
             <div class="container">
                 <div class="oe_website_login_container" t-raw="0"/>
             </div>
@@ -26,7 +26,7 @@
 
     <!--  Delete default Sign up - Reset Password  -->
     <template id="auth_signup_login" inherit_id="auth_signup.login" name="Delete default Sign up - Reset Password">
-        <xpath expr="//div[@class='justify-content-between mt-2 d-flex small']" position="replace"/>
+        <xpath expr="//div[hasclass('justify-content-between')]" position="replace"/>
     </template>
 
 </odoo>

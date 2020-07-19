@@ -44,8 +44,8 @@
         <xpath expr="//header" position="before">
             <t t-call="elzad_theme.bar_top"/>
         </xpath>
-        <xpath expr="//li[@class='nav-item divider']" position="replace"/>
-        <xpath expr="//li[@class='nav-item dropdown']" position="replace"/>
+        <xpath expr="//li[hasclass('divider')]" position="replace"/>
+        <xpath expr="//li[hasclass('dropdown')]" position="replace"/>
     </template>
 
     <!--  Wishlist  -->
@@ -64,7 +64,7 @@
 
     <!--  Cart  -->
     <template id="header_cart" inherit_id="website_sale.header" name="Header Shop My Cart Link Elzad">
-        <xpath expr="//a[@class='nav-link']" position="replace">
+        <xpath expr="//a[hasclass('nav-link')]" position="replace">
             <a href="/shop/cart" class="nav-link">
                 <i class="fa fa-shopping-cart"></i>
                 <sup t-attf-class="my_cart_quantity badge badge-light"

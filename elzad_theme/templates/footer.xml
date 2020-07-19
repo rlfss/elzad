@@ -74,11 +74,11 @@
         <xpath expr="//button//span" position="before">
             <i class="fa fa-globe"></i>
         </xpath>
-        <xpath expr="//div[@class='dropup']" position="attributes">
+        <xpath expr="//div[hasclass('dropup')]" position="attributes">
             <attribute name="class">dropdown</attribute>
         </xpath>
     </template>
     <template id="layout_footer_copyright_elzad" inherit_id="website.layout_footer_copyright">
-        <xpath expr="//div[@class='o_footer_copyright']" position="replace"/>
+        <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace"/>
     </template>
 </odoo>
