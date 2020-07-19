@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_partner_form_elzad">
+        <field name="name">res.partner.form.elzad</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <label for="street" position="before">
+                <field name="sex" widget="radio" attrs="{'invisible': [('is_company', '=', True)]}"/>
+                <field name="date_of_birth" attrs="{'invisible': [('is_company', '=', True)]}"/>
+            </label>
+        </field>
+    </record>
+</odoo>

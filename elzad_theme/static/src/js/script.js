@@ -63,6 +63,7 @@
             $(this).parents('.s_categs_home').find('#'+controls).collapse('show');
         });
 
+
 	});
 })
 (jQuery); // End of use strict

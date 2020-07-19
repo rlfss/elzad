@@ -1,0 +1,64 @@
+.oe_signup_form{
+    max-width:90%;
+    .field-radio{
+        input[type=radio]{
+            display:none;
+            &:checked{
+                & + label{
+                    color:#000000;
+                    border-color:$secondary_color;
+                }
+            }
+            & + label{
+                min-width:90px;
+                text-align:center;
+                cursor:pointer;
+            }
+        }
+    }
+    .acceptterms{
+        input[type=checkbox]{
+            &:checked{
+                & + label{
+                    span{
+                        &:before{
+                            transform:scale(1);
+                        }
+                    }
+                }
+            }
+        }
+        label{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+            align-items: center !important;
+            cursor:pointer;
+            span{
+                display:inline-block;
+                margin-top:2px;
+                width:16px;
+                height:16px;
+                border: 1px solid $grey_1;
+                border-radius: 4px;
+                margin-right:5px;
+                position:relative;
+                &:before{
+                    content:"";
+                    display:inline-block;
+                    position:absolute;
+                    top:2px;
+                    bottom:2px;
+                    left:2px;
+                    right:2px;
+                    background-color:$primary_color;
+                    border-radius: 2px;
+                    transform:scale(0);
+                    transition:transform 0.3s;
+                }
+            }
+        }
+    }
+}

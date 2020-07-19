@@ -19,6 +19,10 @@
                                 <a href="/my/home"><i class="fa fa-user"></i>&amp;nbsp;My account
                                 </a>
                             </li>
+                            <li t-if="not user_id._is_public()">
+                                <a t-attf-href="/web/session/logout?redirect=/" role="menuitem"><i class="fa fa-sign-out"></i>&amp;nbsp;Logout</a>
+                            </li>
+
                             <li t-if="user_id._is_public()">
                                 <a t-attf-href="/web/signup?{{ keep_query() }}"><i class="fa fa-lock"></i>&amp;nbsp;Sign
                                     Up

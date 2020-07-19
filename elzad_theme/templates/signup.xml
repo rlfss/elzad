@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="auth_signup_fields" inherit_id="auth_signup.fields"
+              name="Auth Signup/ResetPassword form fields Elzad">
+        <xpath expr="//div[hasclass('field-login')]" position="replace"/>
+        <xpath expr="//div[hasclass('field-name')]" position="replace"/>
+        <xpath expr="//div[hasclass('field-password')]" position="replace"/>
+        <xpath expr="//div[hasclass('field-confirm_password')]" position="replace"/>
+        <xpath expr="." position="inside">
+
+            <div class="form-group field-sex field-radio">
+                <label for="company_type">&amp;nbsp;</label>
+                <div class="d-flex">
+                    <div class="mr-10">
+                        <input type="radio" id="company" name="company_type" value="company" checked="checked"
+                               required="required"
+                               t-att-readonly="'readonly' if only_passwords else None"/>
+                        <label for="company" class="form-control form-control-md">Institution</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="person" name="company_type" value="person" required="required"
+                               t-att-readonly="'readonly' if only_passwords else None"/>
+                        <label for="person" class="form-control form-control-md">Personal</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content_form_signup" class="row"/>
+
+            <div class="acceptterms">
+                <input id="acceptterms" type="checkbox" name="acceptterms" value="Accept" class="d-none"/>
+                <label for="acceptterms"><span/>I have read the agreement
+                </label>
+            </div>
+
+
+        </xpath>
+
+    </template>
+
+    <template id="signup_elzad" inherit_id="auth_signup.signup" name="Sign up login elzad">
+        <xpath expr="//form" position="before">
+            <h1 class="title_page">Sign Up</h1>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_login_buttons')]" position="replace">
+            <div class="text-right oe_login_buttons pt-3">
+                <button id="btnsignup" disabled="disabled" type="submit" class="btn btn-primary"><i
+                        class="fa fa-lock"></i>&amp;nbsp;Sign up
+                </button>
+                <br/>
+                <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link btn-sm mt-1" role="button">Already
+                    have an account?
+                </a>
+                <div class="o_login_auth"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

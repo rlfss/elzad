@@ -6,6 +6,7 @@
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/button.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/form.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/login.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/signup.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/global.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/pagination.scss"/>
 
@@ -19,6 +20,7 @@
         <xpath expr="script[last()]" position="after">
             <script type="text/javascript" src="/elzad_theme/static/src/js/owl.carousel.min.js"></script>
             <script type="text/javascript" src="/elzad_theme/static/src/js/script.js"/>
+            <script type="text/javascript" src="/elzad_theme/static/src/js/signup.js"/>
         </xpath>
     </template>
 </odoo>
