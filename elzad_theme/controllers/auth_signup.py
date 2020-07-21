@@ -22,6 +22,5 @@ class AuthSignupHomeExt(AuthSignupHome):
         supported_langs = [lang['code'] for lang in request.env['res.lang'].sudo().search_read([], ['code'])]
         if request.lang in supported_langs:
             values['lang'] = request.lang
-        print('values=>',values)
         self._signup_with_values(qcontext.get('token'), values)
         request.env.cr.commit()

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="products_elzad" inherit_id="website_sale.products" name="Products Elzad">-->
+<!--        <xpath expr="//table//tbody//tr[2]//td" position="attributes">-->
+<!--            <attribute name="t-att-colspan"/>-->
+<!--            <attribute name="t-att-rowspan"/>-->
+<!--        </xpath>-->
+
+<!--    </template>-->
+</odoo>

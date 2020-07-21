@@ -4,7 +4,6 @@
     $(document).ready(function () {
         var title = document.getElementById("title");
         title.remove()
-        console.log('title : ',title);
         var tmp_company = '<div class="col-md-8">'+
                                 '<div class="form-group field-name">'+
                                     '<label for="name">The Company\'s name</label>'+
@@ -146,7 +145,6 @@
 
 		$('#acceptterms').on("click", function (event) {
             var btnsignup = document.getElementById("btnsignup");
-            console.log('$(this) = ',$(this))
             if ($(this)[0].checked == true)
             {
                 btnsignup.disabled = false;

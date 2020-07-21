@@ -16,6 +16,7 @@
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/header.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/footer.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/home.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/shop.scss"/>
         </xpath>
         <xpath expr="script[last()]" position="after">
             <script type="text/javascript" src="/elzad_theme/static/src/js/owl.carousel.min.js"></script>
