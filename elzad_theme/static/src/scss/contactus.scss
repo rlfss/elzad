@@ -1,0 +1,25 @@
+.s_contact_form{
+    .content-form-contact{
+        @include bloc-bgwhite-shadow-radius;
+        margin:20px 0;
+        padding:0 3%;
+        textarea{
+            &.form-control{
+                height:120px;
+            }
+        }
+    }
+}
+
+#oe_structure_website_crm_contact_us_thanks_1 + .container{
+    @include bloc-bgwhite-shadow-radius;
+    margin:20px auto;
+    padding:15px 3%;
+    .col-lg-4{
+        display:none!important;
+    }
+    .col-lg-8 {
+        flex: 0 0 100%!important;
+        max-width: 100%!important;
+    }
+}

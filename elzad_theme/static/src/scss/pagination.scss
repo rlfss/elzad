@@ -1,12 +1,35 @@
 .pagination{
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
     .page-item{
         &.active{
             .page-link {
-                color: #ffffff;
+                color: $secondary_color;
                 pointer-events: none;
                 cursor: auto;
-                background-color: $secondary_color;
-                border-color:$secondary_color;
+                background-color:transparent;
+            }
+        }
+        &:first-child,
+        &:last-child{
+            .page-link{
+                background:$grey_1;
+                color:#ffffff;
+            }
+        }
+        &:first-child{
+            .page-link{
+                border-radius:16px 0 0 16px;
+            }
+        }
+        &:last-child{
+            .page-link{
+                border-radius:0 16px 16px 0;
+            }
+        }
+        &.disabled{
+            .page-link{
+                opacity:0.6;
             }
         }
      }
@@ -16,12 +39,16 @@
         padding: 0.5rem 0.75rem;
         margin-left: -1px;
         line-height: 1.25;
-        color: $secondary_color;
+        color: $grey_1;
         background-color: #FFFFFF;
-        border: 1px solid #dee2e6;
+        border: none;
         &:not(:disabled):not(.disabled) {
             cursor: pointer;
         }
     }
 
+}
+
+.page-link:focus{
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }

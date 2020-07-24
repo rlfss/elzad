@@ -1,0 +1,45 @@
+.oe_website_sale{
+    @include bloc-bgwhite-shadow-radius;
+    margin:20px auto;
+    padding-bottom: 20px!important;
+}
+#cart_products{
+    th,tr,td{
+        border:none!important;
+    }
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background:none;
+}
+.progress-wizard .progress-wizard-step .progress-wizard-bar{
+    background-color:#707070;
+    height:1px;
+}
+
+.progress-wizard .progress-wizard-step .progress-wizard-dot {
+    width: 18px;
+    height: 18px;
+    top:-2px;
+    background: #707070;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.25rem #707070;
+}
+.progress-wizard .progress-wizard-step.active .progress-wizard-dot {
+    animation: fadeIn 1s ease 0s 1 normal none running;
+    background: $primary_color;
+    box-shadow: 0 0 0 0.1875rem white, 0 0 0 0.25rem $primary_color;
+}
+
+a.no-decoration{
+    &:first-child{
+        .progress-wizard-bar{
+            width:50%;
+            float:right;
+        }
+    }
+    &:last-child{
+        .progress-wizard-bar{
+            width:50%;
+            float:left;
+        }
+    }
+}

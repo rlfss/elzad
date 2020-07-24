@@ -8,8 +8,8 @@
                     <div class="container">
                         <div class="owl-quick-access owl-carousel owl-theme">
                             <t t-foreach="categories" t-as="categ">
-                                <div class="item" t-attf-id="heading-#{categ.id}">
-                                    <button class="btn btn-link highlight collapsed" type="button"
+                                <div  class="item" t-attf-id="heading-#{categ.id}">
+                                    <button t-attf-class="btn btn-link highlight collapsed#{' active' if categ.id == int(category or 0) else ''}" type="button"
                                             data-toggle="collapse"
                                             t-attf-data-target="#collapse-#{categ.id}" aria-expanded="true"
                                             t-attf-aria-controls="collapse-#{categ.id}">

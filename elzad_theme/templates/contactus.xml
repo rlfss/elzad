@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="contactus_elzad" inherit_id="website.contactus" name="Contactus Elzad">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section class="pt8 pb8 s_contact_form">
+                        <div class="container">
+                            <div class="row s_nb_column_fixed content-form-contact">
+                                <div class="col-12 s_title pt16 pb16">
+                                    <h1>Contact</h1>
+                                </div>
+                                <div class="col-12">
+                                    <p>
+                                        Contact us for any inquiry or if you are having any problem.
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <form action="/website_form/" method="post" data-model_name="crm.lead" data-success_page="/contactus-thank-you" class="s_website_form container-fluid" enctype="multipart/form-data" data-editable-form="false">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group form-field o_website_form_required_custom">
+                                                    <label class="col-form-label" for="contact_name">Name</label>
+                                                    <input type="text" class="form-control o_website_form_input" name="contact_name" t-att-value="request.params.get('contact_name', '')" required=""/>
+                                                </div>
+                                                <div class="form-group form-field">
+                                                    <label class="col-form-label" for="phone">Phone</label>
+                                                    <input type="text" class="form-control o_website_form_input" name="phone" t-att-value="request.params.get('phone', '')" />
+                                                </div>
+                                                <div class="form-group form-field o_website_form_required_custom">
+                                                    <label class="col-form-label" for="email_from">Email</label>
+                                                    <input type="text" class="form-control o_website_form_input" name="email_from" required="" t-att-value="request.params.get('email_from', '')" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group form-field o_website_form_required">
+                                                    <label class="col-form-label" for="name">Subject</label>
+                                                    <input type="text" class="form-control o_website_form_input" name="name" required="" t-att-value="request.params.get('name', '')" />
+                                                </div>
+                                                <div class="form-group form-field o_website_form_required_custom">
+                                                    <label class="col-form-label" for="description">Message</label>
+                                                    <textarea class="form-control o_website_form_input" name="description" required=""><t t-esc="request.params.get('description', '')"/></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group text-right">
+                                                    <span id="o_website_form_result"></span>
+                                                    <a href="#" role="button" class="btn btn-primary btn-lg o_website_form_send">Send</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

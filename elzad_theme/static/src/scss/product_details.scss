@@ -1,0 +1,131 @@
+#product_details{
+
+    .js_product{
+
+    }
+}
+#product_detail{
+    @include bloc-bgwhite-shadow-radius;
+    margin-top:20px;
+    .form-inline.justify-content-end{
+        margin-bottom:20px;
+    }
+}
+
+.css_quantity{
+    margin:10px 0;
+    .input-group-prepend,.input-group-append{
+        .btn{
+            background-color:transparent;
+            border-color:$grey_1;
+            color:$grey_1;
+            box-shadow:none!important;
+            border-radius:12px;
+            &:hover,
+            &:focus,
+            &:active{
+                background-color:transparent;
+                color:#000000;
+            }
+        }
+    }
+    .form-control{
+        &.quantity{
+            border:none;
+            box-shadow:none!important;
+            color:$secondary_color;
+        }
+    }
+}
+
+.col-form-label{
+    input[type=radio]{
+        display:none;
+    }
+    .radio_input_value{
+        position:relative;
+        &:before{
+            content:'';
+            display:inline-block;
+            width:16px;
+            height:16px;
+            border-radius:50%;
+            border:1px solid $grey_1;
+        }
+        &:after{
+            content:'';
+            display:inline-block;
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background:$primary_color;
+            position:absolute;
+            top:3px;
+            left:3px;
+            transition:transform 0.4s;
+            transform:scale(0);
+        }
+    }
+    input[type=radio]:checked{
+        + .radio_input_value{
+            &:after{
+                transform:scale(1);
+            }
+        }
+    }
+}
+.custom-control{
+    &.custom-radio{
+        .custom-control-label{
+            position:relative;
+            &:before{
+                content:'';
+                display:inline-block;
+                width:16px;
+                height:16px;
+                border-radius:50%;
+                border:1px solid $grey_1;
+                background:none!important;
+            }
+            &:after{
+                content:'';
+                display:inline-block;
+                width:10px;
+                height:10px;
+                border-radius:50%;
+                background:$primary_color;
+                position:absolute;
+                top: 6px;
+                left: -21px;
+                transition:transform 0.4s;
+                transform:scale(0);
+                background-image:none!important;
+            }
+        }
+    }
+    input[type=radio]:checked{
+        + .custom-control-label{
+            &:after{
+                transform:scale(1);
+            }
+        }
+    }
+}
+
+.product_price{
+    .oe_price_h4{
+        .oe_price{
+            color:$secondary_color;
+            font-size:28px;
+        }
+        .oe_default_price{
+            color:$grey_1!important;
+        }
+    }
+}
+
+.o_shop_discussion_rating{
+    > section{
+        @include bloc-bgwhite-shadow-radius;
+    }
+}

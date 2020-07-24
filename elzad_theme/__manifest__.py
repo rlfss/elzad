@@ -8,7 +8,7 @@
     'sequence': 1000,
     'version': '1.0.6',
     'depends': ['website', 'website_theme_install', 'auth_signup', 'website_sale', 'portal', 'product',
-                'website_sale_wishlist', 'auth_signup', 'base'],
+                'website_sale_wishlist', 'auth_signup', 'base', 'website_crm'],
     'data': [
         'security/ir.model.access.csv',
         'templates/assets.xml',
@@ -18,6 +18,7 @@
         'templates/login.xml',
         'templates/signup.xml',
         'templates/shop.xml',
+        'templates/contactus.xml',
         'views/slider_home_view.xml',
         'views/product_template.xml',
         'views/res_partner_view.xml',

@@ -1,3 +1,9 @@
+.btn{
+     border-radius:10px;
+}
+.btn-lg, .btn-group-lg > .btn{
+    border-radius:12px;
+}
 // btn-primary
 .btn-primary.disabled, .btn-primary:disabled ,
 .btn-primary {
@@ -33,4 +39,13 @@
     color: #FFFFFF;
     background-color: $secondary_color_hover;
     border-color:$secondary_color_hover;
+}
+
+//badge
+
+.badge-secondary {
+    background-color:$secondary_color;
+}
+.css_attribute_color {
+    border-radius: 8px;
 }
