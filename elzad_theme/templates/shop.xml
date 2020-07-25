@@ -7,7 +7,7 @@
    </template>
     <!--  delete breadcrumb -->
    <template id="product_elzad" inherit_id="website_sale.product" name="Product">
-        <xpath expr="//ol[hasclass('breadcrumb')]" position="replace"/>
+<!--         <xpath expr="//ol[hasclass('breadcrumb')]" position="replace"/> -->
         <xpath expr="//div[@id='product_details']" position="attributes">
             <attribute name="class">col-md-6 col-xl-4</attribute>
         </xpath>

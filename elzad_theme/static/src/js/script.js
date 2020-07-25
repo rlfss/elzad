@@ -36,9 +36,21 @@
 		});
 		$('.owl-product-home').owlCarousel({
 			items: 4,
+			margin: 5,
 			nav: true,
 			dots: false,
-			navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
+			navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+            responsive: {
+				0: {
+					items: 1
+				},
+				576: {
+					items: 2
+				},
+				992: {
+					items: 4
+				}
+			},
 		});
 
 		$('a[href="#search-button"]').on("click", function (event) {

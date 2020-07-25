@@ -1,7 +1,9 @@
-.oe_website_sale{
+.container.oe_website_sale.py-2{
     @include bloc-bgwhite-shadow-radius;
     margin:20px auto;
     padding-bottom: 20px!important;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 #cart_products{
     th,tr,td{
@@ -42,4 +44,19 @@ a.no-decoration{
             float:left;
         }
     }
+}
+
+.progress-wizard .progress-wizard-step.complete .progress-wizard-dot:after{
+    color:$primary_color;
+    width:18px;
+    height:18px;
+    font-size: 28px;
+}
+.progress-wizard .progress-wizard-step.complete:hover:not(.disabled) .progress-wizard-steplabel,
+.progress-wizard .progress-wizard-step.complete:hover:not(.disabled) .progress-wizard-dot:after,
+.progress-wizard .progress-wizard-step.complete .progress-wizard-steplabel{
+    color:$primary_color;
+}
+.oe_website_sale .o_payment_form .card{
+    border-radius:10px!important;
 }

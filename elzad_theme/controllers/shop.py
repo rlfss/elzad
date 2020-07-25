@@ -28,7 +28,6 @@ class TableCompute(object):
         self.table = {}
 
     def _check_place(self, posx, posy, sizex, sizey):
-        print('_check_place------------')
         res = True
         for y in range(sizey):
             for x in range(sizex):
@@ -45,7 +44,6 @@ class TableCompute(object):
 
     def process(self, products, ppg=PPG):
         # Compute products positions on the grid
-        print('process------------')
 
         minpos = 0
         index = 0
@@ -89,7 +87,6 @@ class TableCompute(object):
             cols = sorted(rows[col].items())
             x += len(cols)
             rows[col] = [r[1] for r in cols if r[1]]
-        print('rows = ', rows)
         return rows
 
 
@@ -278,7 +275,6 @@ class WebsiteSale(ProductConfiguratorController):
             if ((i + 1) % 4) == 0:
                 allproducts.append(listproducts)
                 listproducts = []
-        print('allproducts=', allproducts)
 
         values = {
             'search': search,
