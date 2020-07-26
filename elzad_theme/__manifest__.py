@@ -6,7 +6,7 @@
     'description': 'Elzad website theme',
     'category': 'Theme/eCommerce',
     'sequence': 1000,
-    'version': '1.0.9',
+    'version': '1.0.10',
     'depends': ['website', 'website_theme_install', 'auth_signup', 'website_sale', 'portal', 'product',
                 'website_sale_wishlist', 'auth_signup', 'base', 'website_crm'],
     'data': [
