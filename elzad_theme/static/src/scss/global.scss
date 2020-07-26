@@ -112,13 +112,13 @@ a{
     }
 }
 
-.dropdown-menu {display: block;visibility: hidden;opacity:0;transition:.5s ease all;}
-.dropdown-menu.show {display: block;visibility: visible;opacity:1;transition:.5s ease all;}
+.dropdown-menu {display: block;visibility: hidden;opacity:0;transition:opacity .5s ease;}
+.dropdown-menu.show {display: block;visibility: visible;opacity:1;transition:opacity .5s ease;}
 
 .dropdown-item {
     &:hover,&:focus,&:active{
-        background-color: $secondary_color;
-        color:#fff;
+        background-color: $secondary_color!important;
+        color:#fff!important;
     }
 }
 
