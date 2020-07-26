@@ -172,16 +172,18 @@
                 z-index: 4;
             }
         }
-        .oe_price_h4{
+        .product_price{
             position:relative;
-            .oe_default_price{
+            b > del{
                 font-size:12px;
                 position:absolute;
                 left:0;
                 top:20px;
+                color:$grey_1!important;
             }
-            .oe_price{
-                font-size:16px;
+            b > span[data-oe-type="monetary"]{
+                font-size: 16px;
+                color: $secondary_color;
                 display: block;
                 padding-bottom: 10px;
             }

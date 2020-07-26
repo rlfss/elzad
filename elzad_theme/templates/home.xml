@@ -140,7 +140,6 @@
                                         </h6>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div>
-<!--                                                 <t t-call="website_sale.product_price" /> -->
                                                 <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price">
                                                     <b>
                                                         <t t-if="True"><!-- compatibility 12.0 -->
@@ -203,7 +202,6 @@
                                         </h6>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div>
-<!--                                                 <t t-call="website_sale.product_price" /> -->
                                                 <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price">
                                                     <b>
                                                         <t t-if="True"><!-- compatibility 12.0 -->
@@ -264,7 +262,16 @@
                                         </h6>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div>
-                                                <t t-call="website_sale.product_price" />
+                                                <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price">
+                                                    <b>
+                                                        <t t-if="True"><!-- compatibility 12.0 -->
+                                                            <del t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                                                        </t>
+                                                        <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                                        <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
+                                                        <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+                                                    </b>
+                                                </div>
                                             </div>
                                             <div>
                                                 <t t-set="in_wish" t-value="product._is_in_wishlist()"/>
