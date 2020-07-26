@@ -123,7 +123,7 @@
                     <t t-foreach="offers_products" t-as="product">
                         <div class="item">
                             <div class="product_item">
-                                <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+                                <t t-set="combination_info" t-value="product._get_combination_info()"/>
                                 <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update"
                                       method="post">
                                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
@@ -176,7 +176,7 @@
                     <t t-foreach="new_products" t-as="product">
                         <div class="item">
                             <div class="product_item">
-                                <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+                                <t t-set="combination_info" t-value="product._get_combination_info()"/>
                                 <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update"
                                       method="post">
                                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
@@ -228,7 +228,7 @@
                     <t t-foreach="popular_products" t-as="product">
                         <div class="item">
                             <div class="product_item">
-                                <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+                                <t t-set="combination_info" t-value="product._get_combination_info()"/>
                                 <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update"
                                       method="post">
                                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>

@@ -23,7 +23,7 @@
                                 <a t-attf-href="/web/session/logout?redirect=/" role="menuitem"><i class="fa fa-sign-out"></i>&amp;nbsp;Logout</a>
                             </li>
                             <t t-set="signup_enabled" t-value="request.env['ir.config_parameter'].sudo().get_param('auth_signup.invitation_scope') == 'b2c'"/>
-                            <li t-if="signup_enabled">
+                            <li t-if="signup_enabled and user_id._is_public()">
                                 <a t-attf-href="/web/signup?{{ keep_query() }}"><i class="fa fa-lock"></i>&amp;nbsp;Sign
                                     Up
                                 </a>
