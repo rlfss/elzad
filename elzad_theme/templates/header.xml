@@ -4,6 +4,8 @@
     <!--  Bar top  -->
     <template id="bar_top" name="Bar top">
         <div class="bar-top">
+                        <t t-esc="request.env.lang"/>
+
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">

@@ -20,11 +20,14 @@
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/product_details.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/contactus.scss"/>
             <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/cart.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/elzad_theme/static/src/scss/home-ar.scss" t-if="request.env.lang=='ar_AA'"/>
         </xpath>
         <xpath expr="script[last()]" position="after">
             <script type="text/javascript" src="/elzad_theme/static/src/js/owl.carousel.min.js"></script>
-            <script type="text/javascript" src="/elzad_theme/static/src/js/script.js"/>
+            <script type="text/javascript" src="/elzad_theme/static/src/js/script-en.js" t-if="request.env.lang!=ar_AA"/>
+            <script type="text/javascript" src="/elzad_theme/static/src/js/script-ar.js" t-if="request.env.lang==ar_AA"/>
             <script type="text/javascript" src="/elzad_theme/static/src/js/signup.js"/>
+            <script type="text/javascript" src="/elzad_theme/static/src/js/script.js"/>
         </xpath>
     </template>
 </odoo>

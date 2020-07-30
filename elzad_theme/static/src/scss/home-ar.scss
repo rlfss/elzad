@@ -1,0 +1,9 @@
+.owl-theme{
+    .owl-nav{
+        [class*=owl-]{
+            .fa{
+               transform: rotate(0deg);
+            }
+        }
+    }
+}
