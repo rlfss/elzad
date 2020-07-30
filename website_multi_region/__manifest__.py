@@ -10,7 +10,7 @@
     """,
 
     'author': "Yousuf",
-    'depends': ['base','website','stock','website_sale'],
+    'depends': ['base','website','stock','website_sale','elzad_theme'],
     'data': [
         'security/ir.model.access.csv',
         # 'views/templates.xml',

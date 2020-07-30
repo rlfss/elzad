@@ -5,7 +5,7 @@
     <template id="bar_top" name="Bar top">
         <div class="bar-top">
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-6">
                         <t t-call="website.language_selector"/>
                     </div>
