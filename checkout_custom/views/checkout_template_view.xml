@@ -18,75 +18,121 @@
     <template id="address_inherit" inherit_id="website_sale.address">
         <xpath expr="//div[hasclass('form-row')]" position="replace">
             <div class="form-row">
-                <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
+                <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-4 div_name">
                     <label class="col-form-label" for="name">Name</label>
-                    <input type="text" name="name" t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}" t-att-value="'name' in checkout and checkout['name']" />
+                    <input type="text" name="name"
+                           t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}"
+                           t-att-value="'name' in checkout and checkout['name']"/>
+                </div>
+<!--                <div class="form-group #{error.get('sex') and 'o_has_error' or ''} col-lg-4 div_sex field-sex field-radio">-->
+<!--                    <label class="col-form-label" for="sex">Sex-->
+<!--                        <t t-esc="checkout['sex']"/>-->
+<!--                    </label>-->
+<!--                    <div class="form-row">-->
+<!--                        <div class="col-6">-->
+<!--                            <input type="radio" id="male" name="sex" value="male"-->
+<!--                                   t-att-checked="'checked' if checkout['sex'] == 'male' else None "-->
+<!--                                   required="required"-->
+<!--                                   t-att-readonly="readonly if only_passwords else None"/>-->
+<!--                            <label for="male" class="form-control form-control-md">Male</label>-->
+<!--                        </div>-->
+<!--                        <div class="col-6">-->
+<!--                            <input type="radio" id="female" name="sex" value="female"-->
+<!--                                   t-att-checked="'checked' if checkout['sex'] == 'female' else None "-->
+<!--                                   required="required"-->
+<!--                                   t-att-readonly="readonly if only_passwords else None"/>-->
+<!--                            <label for="female" class="form-control form-control-md">Female</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="form-group #{error.get('date_of_birth') and 'o_has_error' or ''} col-lg-4 div_date_of_birth field-date_of_birth">
+                    <label class="col-form-label" for="date_of_birth">Date of birth</label>
+                    <input type="date" name="date_of_birth" id="date_of_birth"
+                           t-att-value="'date_of_birth' in checkout and checkout['date_of_birth']"
+                           t-attf-class="form-control #{error.get('date_of_birth') and 'is-invalid' or ''}"
+                           autocapitalize="off" required="required"
+                           t-att-readonly="readonly if only_passwords else None"/>
                 </div>
                 <div class="w-100"/>
-                <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-lg-6" id="div_phone">
-                    <label class="col-form-label" for="phone">Phone</label>
-                    <input type="tel" name="phone" t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}" t-att-value="'phone' in checkout and checkout['phone']" />
-                </div>
                 <t t-if="mode[1] == 'billing'">
-                    <div t-attf-class="form-group #{error.get('email') and 'o_has_error' or ''} col-lg-6" id="div_email">
+                    <div t-attf-class="form-group #{error.get('email') and 'o_has_error' or ''} col-lg-4"
+                         id="div_email">
                         <label class="col-form-label" for="email">Email</label>
-                        <input type="email" name="email" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}" t-att-value="'email' in checkout and checkout['email']" />
+                        <input type="email" name="email"
+                               t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}"
+                               t-att-value="'email' in checkout and checkout['email']"/>
                     </div>
                 </t>
+                <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-lg-4" id="div_phone">
+                    <label class="col-form-label" for="phone">Phone</label>
+                    <input type="tel" name="phone"
+                           t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}"
+                           t-att-value="'phone' in checkout and checkout['phone']"/>
+                </div>
+                <div t-attf-class="form-group #{error.get('street') and 'o_has_error' or ''} col-lg-4 div_street">
+                    <label class="col-form-label" for="street">Address / Street
+                    </label>
+                    <input type="text" name="street"
+                           t-attf-class="form-control #{error.get('street') and 'is-invalid' or ''}"
+                           t-att-value="'street' in checkout and checkout['street']"/>
+                </div>
                 <div class="w-100"/>
-                <t t-set='zip_city' t-value='country and [x for x in country.get_address_fields() if x in ["zip", "city"]] or ["city", "zip"]'/>
-                <t t-if="'zip' in zip_city and zip_city.index('zip') &lt; zip_city.index('city')">
-                    <div t-attf-class="form-group #{error.get('zip') and 'o_has_error' or ''} col-md-4 div_zip">
-                        <label class="col-form-label label-optional" for="zip">Zone</label>
-                        <input type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}" t-att-value="'zip' in checkout and checkout['zip']" />
-                    </div>
-                </t>
-                <div t-attf-class="form-group #{error.get('city') and 'o_has_error' or ''} col-md-8 div_city">
+                <t t-set='zip_city'
+                   t-value='country and [x for x in country.get_address_fields() if x in ["zip", "city"]] or ["city", "zip"]'/>
+                <div t-attf-class="form-group #{error.get('city') and 'o_has_error' or ''} col-lg-4 div_city">
                     <label class="col-form-label" for="city_sel">City</label>
-                        <select id="city_sel" name="city_sel" t-attf-class="form-control #{error.get('city_sel') and 'is-invalid' or ''}">
-                            <option value="">City...</option>
-                            <t t-foreach="city_sels" t-as="c">
-                                <option t-att-value="c.id" t-att-selected="c.id == (city_sel and city_sel.id or -1)">
-                                    <t t-esc="c.name" />
-                                </option>
-                            </t>
-                        </select>
-                </div>
-                    <div t-attf-class="form-group #{error.get('zone') and 'o_has_error' or ''} col-md-4 div_zip">
-                        <label class="col-form-label label-optional" for="Zone">Zone</label>
-                        <select id="zone" name="zone" t-attf-class="form-control #{error.get('zone') and 'is-invalid' or ''}">
-                            <option value="">Zone...</option>
-                            <t t-foreach="zones" t-as="c">
-                                <option t-att-value="c.id" t-att-selected="c.id == (zone and zone.id or -1)">
-                                    <t t-esc="c.name" />
-                                </option>
-                            </t>
-                        </select>
-                    </div>
-                <div class="w-100"/>
-                <div t-attf-class="form-group #{error.get('street') and 'o_has_error' or ''} col-lg-12 div_street">
-                    <label class="col-form-label" for="street">Street <span class="d-none d-md-inline"> and Number</span></label>
-                    <input type="text" name="street" t-attf-class="form-control #{error.get('street') and 'is-invalid' or ''}" t-att-value="'street' in checkout and checkout['street']" />
-                </div>
-                <div class="w-100"/>
-                <div t-attf-class="form-group #{error.get('country_id') and 'o_has_error' or ''} col-lg-6 div_country">
-                    <label class="col-form-label" for="country_id">Country</label>
-                    <select id="country_id" name="country_id" t-attf-class="form-control #{error.get('country_id') and 'is-invalid' or ''}">
-                        <option value="">Country...</option>
-                        <t t-foreach="countries" t-as="c">
-                            <option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">
-                                <t t-esc="c.name" />
+                    <select id="city_sel" name="city_sel"
+                            t-attf-class="form-control #{error.get('city_sel') and 'is-invalid' or ''}">
+                        <option value="">City...</option>
+                        <t t-foreach="city_sels" t-as="c">
+                            <option t-att-value="c.id" t-att-selected="c.id == (city_sel and city_sel.id or -1)">
+                                <t t-esc="c.name"/>
                             </option>
                         </t>
                     </select>
                 </div>
-                <div t-attf-class="form-group #{error.get('state_id') and 'o_has_error' or ''} col-lg-6 div_state" t-att-style="(not country or not country.state_ids) and 'display: none'">
+                <div t-attf-class="form-group #{error.get('zip') and 'o_has_error' or ''} col-lg-4 div_zip">
+                    <label class="col-form-label label-optional" for="zip">Postal code</label>
+                    <input type="text" name="zip"
+                           t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}"
+                           t-att-value="'zip' in checkout and checkout['zip']"/>
+                </div>
+                <div t-attf-class="form-group #{error.get('zone') and 'o_has_error' or ''} col-lg-4 div_zone">
+                    <label class="col-form-label label-optional" for="Zone">Zone</label>
+                    <select id="zone" name="zone"
+                            t-attf-class="form-control #{error.get('zone') and 'is-invalid' or ''}">
+                        <option value="">Zone...</option>
+                        <t t-foreach="zones" t-as="c">
+                            <option t-att-value="c.id" t-att-selected="c.id == (zone and zone.id or -1)">
+                                <t t-esc="c.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+
+                <div class="w-100"/>
+                <div t-attf-class="form-group #{error.get('country_id') and 'o_has_error' or ''} col-lg-4 div_country">
+                    <label class="col-form-label" for="country_id">Country</label>
+                    <select id="country_id" name="country_id"
+                            t-attf-class="form-control #{error.get('country_id') and 'is-invalid' or ''}">
+                        <option value="">Country...</option>
+                        <t t-foreach="countries" t-as="c">
+                            <option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">
+                                <t t-esc="c.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+                <div t-attf-class="form-group #{error.get('state_id') and 'o_has_error' or ''} col-lg-4 div_state"
+                     t-att-style="(not country or not country.state_ids) and 'display: none'">
                     <label class="col-form-label" for="state_id">State / Province</label>
-                    <select name="state_id" t-attf-class="form-control #{error.get('state_id') and 'is-invalid' or ''}" data-init="1">
+                    <select name="state_id" t-attf-class="form-control #{error.get('state_id') and 'is-invalid' or ''}"
+                            data-init="1">
                         <option value="">State / Province...</option>
                         <t t-foreach="country and country.state_ids or []" t-as="s">
-                            <option t-att-value="s.id" t-att-selected="s.id == ('state_id' in checkout and country and checkout['state_id'] != '' and int(checkout['state_id']))">
-                                <t t-esc="s.name" />
+                            <option t-att-value="s.id"
+                                    t-att-selected="s.id == ('state_id' in checkout and country and checkout['state_id'] != '' and int(checkout['state_id']))">
+                                <t t-esc="s.name"/>
                             </option>
                         </t>
                     </select>
@@ -95,9 +141,12 @@
                 <t t-if="mode == ('new', 'billing') and not only_services">
                     <div class="col-lg-12">
                         <div class="checkbox">
-                          <label>
-                            <input type="checkbox" id='shipping_use_same' class="mr8" name='use_same' value="1" checked='checked'/>Ship to the same address
-                            <span class='ship_to_other text-muted' style="display: none">&amp;nbsp;(<i>Your shipping address will be requested later) </i></span>
+                            <label>
+                                <input type="checkbox" id='shipping_use_same' class="mr8" name='use_same' value="1"
+                                       checked='checked'/>Ship to the same address
+                                <span class='ship_to_other text-muted' style="display: none">&amp;nbsp;(
+                                    <i>Your shipping address will be requested later)</i>
+                                </span>
                             </label>
                         </div>
                     </div>

@@ -4,8 +4,6 @@
     <!--  Bar top  -->
     <template id="bar_top" name="Bar top">
         <div class="bar-top">
-                        <t t-esc="request.env.lang"/>
-
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -13,21 +11,29 @@
                     </div>
                     <div class="col-md-6">
                         <ul class="mini-nav mb-0">
-                            <li>
-                                <a href="/"><i class="fa fa-home"></i>&amp;nbsp;Home
-                                </a>
-                            </li>
+<!--                            <li>-->
+<!--                                <a href="/"><i class="fa fa-home"></i>&amp;nbsp;Home-->
+<!--                                </a>-->
+<!--                            </li>-->
                             <li t-if="not user_id._is_public()">
                                 <a href="/my/home"><i class="fa fa-user"></i>&amp;nbsp;My account
                                 </a>
                             </li>
                             <li t-if="not user_id._is_public()">
-                                <a t-attf-href="/web/session/logout?redirect=/" role="menuitem"><i class="fa fa-sign-out"></i>&amp;nbsp;Logout</a>
+                                <a t-attf-href="/web/session/logout?redirect=/" role="menuitem"><i
+                                        class="fa fa-sign-out"></i>&amp;nbsp;Logout
+                                </a>
                             </li>
-                            <t t-set="signup_enabled" t-value="request.env['ir.config_parameter'].sudo().get_param('auth_signup.invitation_scope') == 'b2c'"/>
+                            <t t-set="signup_enabled"
+                               t-value="request.env['ir.config_parameter'].sudo().get_param('auth_signup.invitation_scope') == 'b2c'"/>
                             <li t-if="signup_enabled and user_id._is_public()">
                                 <a t-attf-href="/web/signup?{{ keep_query() }}"><i class="fa fa-lock"></i>&amp;nbsp;Sign
                                     Up
+                                </a>
+                            </li>
+                            <li groups="base.group_public">
+                                <a t-attf-href="/web/login">
+                                    <i class="fa fa-sign-in"></i>&amp;nbsp;Sign in
                                 </a>
                             </li>
                             <li>
@@ -46,8 +52,25 @@
         <xpath expr="//header" position="before">
             <t t-call="elzad_theme.bar_top"/>
         </xpath>
-        <xpath expr="//li[hasclass('divider')]" position="replace"/>
-        <xpath expr="//li[hasclass('dropdown')]" position="replace"/>
+        <xpath expr="//li[@class='nav-item divider']" position="attributes">
+            <attribute name="style">display:none!important;</attribute>
+        </xpath>
+        <xpath expr="//li[@class='nav-item dropdown']" position="attributes">
+            <attribute name="style">display:none!important;</attribute>
+        </xpath>
+    </template>
+
+    <template id="portal_hide_sign_in" inherit_id="portal.portal_show_sign_in" name="Hide Sign In">
+        <xpath expr="//li[hasclass('divider')][last()]" position="attributes">
+            <attribute name="style">display:none!important;</attribute>
+        </xpath>
+        <xpath expr="//li[hasclass('nav-item')][last()]" position="attributes">
+            <attribute name="style">display:none!important;</attribute>
+        </xpath>
+        <!--        <xpath expr="//li[hasclass('nav-item')]" position="attributes">-->
+        <!--            <attribute name="class">nav-item d-none</attribute>-->
+        <!--        </xpath>-->
+        <!--        <xpath expr="//li[hasclass('nav-item')]" position="replace"/>-->
     </template>
 
     <!--  Wishlist  -->

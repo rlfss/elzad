@@ -16,36 +16,52 @@
                                     </p>
                                 </div>
                                 <div class="col-12">
-                                    <form action="/website_form/" method="post" data-model_name="crm.lead" data-success_page="/contactus-thank-you" class="s_website_form container-fluid" enctype="multipart/form-data" data-editable-form="false">
+                                    <form action="/website_form/" method="post" data-model_name="crm.lead"
+                                          data-success_page="/contactus-thank-you"
+                                          class="s_website_form container-fluid" enctype="multipart/form-data"
+                                          data-editable-form="false">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group form-field o_website_form_required_custom">
                                                     <label class="col-form-label" for="contact_name">Name</label>
-                                                    <input type="text" class="form-control o_website_form_input" name="contact_name" t-att-value="request.params.get('contact_name', '')" required=""/>
+                                                    <input type="text" class="form-control o_website_form_input"
+                                                           name="contact_name"
+                                                           t-att-value="request.params.get('contact_name', '')"
+                                                           required=""/>
                                                 </div>
                                                 <div class="form-group form-field">
                                                     <label class="col-form-label" for="phone">Phone</label>
-                                                    <input type="text" class="form-control o_website_form_input" name="phone" t-att-value="request.params.get('phone', '')" />
+                                                    <input type="text" class="form-control o_website_form_input"
+                                                           name="phone" t-att-value="request.params.get('phone', '')"/>
                                                 </div>
                                                 <div class="form-group form-field o_website_form_required_custom">
                                                     <label class="col-form-label" for="email_from">Email</label>
-                                                    <input type="text" class="form-control o_website_form_input" name="email_from" required="" t-att-value="request.params.get('email_from', '')" />
+                                                    <input type="text" class="form-control o_website_form_input"
+                                                           name="email_from" required=""
+                                                           t-att-value="request.params.get('email_from', '')"/>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group form-field o_website_form_required">
                                                     <label class="col-form-label" for="name">Subject</label>
-                                                    <input type="text" class="form-control o_website_form_input" name="name" required="" t-att-value="request.params.get('name', '')" />
+                                                    <input type="text" class="form-control o_website_form_input"
+                                                           name="name" required=""
+                                                           t-att-value="request.params.get('name', '')"/>
                                                 </div>
                                                 <div class="form-group form-field o_website_form_required_custom">
                                                     <label class="col-form-label" for="description">Message</label>
-                                                    <textarea class="form-control o_website_form_input" name="description" required=""><t t-esc="request.params.get('description', '')"/></textarea>
+                                                    <textarea class="form-control o_website_form_input"
+                                                              name="description" required="">
+                                                        <t t-esc="request.params.get('description', '')"/>
+                                                    </textarea>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group text-right">
                                                     <span id="o_website_form_result"></span>
-                                                    <a href="#" role="button" class="btn btn-primary btn-lg o_website_form_send">Send</a>
+                                                    <a href="#" role="button"
+                                                       class="btn btn-primary btn-lg o_website_form_send">Send
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>

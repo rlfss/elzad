@@ -4,17 +4,18 @@ from odoo import SUPERUSER_ID
 from odoo.addons.http_routing.models.ir_http import slug
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 import logging
+
 _logger = logging.getLogger(__name__)
+
 
 class WebsiteSale(WebsiteSale):
 
     def _get_mandatory_billing_fields(self):
         return ["name", "phone", "street", "city_sel", "zone", "country_id"]
 
-
     def _get_mandatory_shipping_fields(self):
-        return ["name", "phone", "street", "city_sel", "zone", "country_id"]
-        
+        return ["name","phone", "street", "city_sel", "zone", "country_id"]
+
     def values_postprocess(self, order, mode, values, errors, error_msg):
         new_values = {}
         authorized_fields = request.env['ir.model']._get('res.partner')._get_form_writable_fields()
@@ -23,7 +24,7 @@ class WebsiteSale(WebsiteSale):
             if k in authorized_fields and v is not None:
                 new_values[k] = v
             else:  # DEBUG ONLY
-                if k not in ('field_required', 'partner_id', 'callback', 'submitted'): # classic case
+                if k not in ('field_required', 'partner_id', 'callback', 'submitted'):  # classic case
                     _logger.debug("website_sale postprocess: %s value has been dropped (empty or not writable)" % k)
         for k, v in values.items():
             # don't drop empty value, it could be a field to reset
@@ -31,7 +32,10 @@ class WebsiteSale(WebsiteSale):
                 new_values[k] = v
             if k == 'city_sel':
                 new_values[k] = v
-
+            if k == 'sex':
+                new_values[k] = v
+            if k == 'date_of_birth':
+                new_values[k] = v
         new_values['customer'] = True
         new_values['team_id'] = request.website.salesteam_id and request.website.salesteam_id.id
         new_values['user_id'] = request.website.salesperson_id and request.website.salesperson_id.id
@@ -52,7 +56,6 @@ class WebsiteSale(WebsiteSale):
             new_values['type'] = 'delivery'
 
         return new_values, errors, error_msg
-
 
     @http.route(['/shop/address'], type='http', methods=['GET', 'POST'], auth="public", website=True)
     def address(self, **kw):
@@ -97,7 +100,7 @@ class WebsiteSale(WebsiteSale):
                     values = Partner.browse(partner_id)
             elif partner_id == -1:
                 mode = ('new', 'shipping')
-            else: # no mode - refresh without post?
+            else:  # no mode - refresh without post?
                 return request.redirect('/shop/checkout')
 
         # IF POSTED
@@ -118,7 +121,8 @@ class WebsiteSale(WebsiteSale):
                     order.partner_invoice_id = partner_id
                     if not kw.get('use_same'):
                         kw['callback'] = kw.get('callback') or \
-                            (not order.only_services and (mode[0] == 'edit' and '/shop/checkout' or '/shop/address'))
+                                         (not order.only_services and (
+                                                 mode[0] == 'edit' and '/shop/checkout' or '/shop/address'))
                 elif mode[1] == 'shipping':
                     order.partner_shipping_id = partner_id
 
@@ -126,14 +130,15 @@ class WebsiteSale(WebsiteSale):
                 if not errors:
                     return request.redirect(kw.get('callback') or '/shop/confirm_order')
 
-        country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(int(values['country_id']))
+        country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(
+            int(values['country_id']))
         country = country and country.exists() or def_country_id
-
 
         zone = 'zone' in values and values['zone'] != '' and request.env['res.partner.zone'].browse(int(values['zone']))
         zone = zone and zone.exists() or def_zone
 
-        city_sel = 'city_sel' in values and values['city_sel'] != '' and request.env['res.partner.city'].browse(int(values['city_sel']))
+        city_sel = 'city_sel' in values and values['city_sel'] != '' and request.env['res.partner.city'].browse(
+            int(values['city_sel']))
         city_sel = city_sel and city_sel.exists() or def_city_sel
 
         render_values = {
@@ -157,16 +162,15 @@ class WebsiteSale(WebsiteSale):
 
     @http.route(["/website/min_lang"], type='json', auth="public", methods=['POST'], website=True)
     def website_langauge(self, code, **kw):
-        lang_id = request.env['res.lang'].search([('code','=',code.replace('-','_'))])
+        lang_id = request.env['res.lang'].search([('code', '=', code.replace('-', '_'))])
         return {
             'sep_format': lang_id.grouping,
             'decimal_point': lang_id.decimal_point,
             'thousands_sep': lang_id.thousands_sep
         }
 
-
     def checkout_redirection(self, order):
         minimum_order_value = 1 if not request.website.minimum_order_value else request.website.minimum_order_value
-        if  minimum_order_value and order.amount_total < minimum_order_value:
+        if minimum_order_value and order.amount_total < minimum_order_value:
             return request.redirect('/shop/cart')
         return super(WebsiteSale, self).checkout_redirection(order)
